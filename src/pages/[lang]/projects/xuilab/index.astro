@@ -1,0 +1,39 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import CaseCards from '../../../../components/CaseCards.astro';
+import EvidenceNote from '../../../../components/EvidenceNote.astro';
+import { languages, type Lang } from '../../../../data/profile';
+import { docs, source, downloads, release } from '../../../../data/xuilab';
+export function getStaticPaths() { return languages.map(lang => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const zh = lang === 'zh';
+---
+<Layout lang={lang} title="XUILab" description={zh ? '虚拟列表、程序化渐变与确定性 Benchmark Runner：XUILab 的实现、演示、结果与边界。' : 'Virtual lists, procedural gradients, and a deterministic benchmark runner. XUILab implementations, demos, results, and limits.'} path="projects/xuilab/">
+  <section class="wrap project-intro">
+    <a class="back-link" href={'/' + lang + '/projects/'}>← {zh ? '全部作品' : 'All projects'}</a>
+    <div class="project-title"><div><p class="eyebrow">01 / UNITY UI ENGINEERING</p><h1>XUILab<span class="title-period">.</span></h1></div><span class="badge">{release}</span></div>
+    <div class="project-description"><h2>{zh ? '可复现的 Unity UGUI 实验' : 'Reproducible Unity UGUI experiments'}</h2><p class="lede">{zh ? '通过固定行高列表、程序化渐变和确定性 Benchmark Runner，研究 UI 更新策略、画质与运行成本，并保留可以核对的实验结果。' : 'Investigate UI updates, visual quality, and runtime cost through fixed-height lists, procedural gradients, and a deterministic benchmark runner, with evidence that can be checked.'}</p></div>
+    <div class="actions"><a class="button button-dark" href="#case-studies">{zh ? '阅读案例' : 'Read the case studies'} <span aria-hidden="true">↓</span></a><a class="button button-outline" href={source}>{zh ? '查看源码' : 'Source code'} ↗</a><a class="text-link" href={downloads}>{zh ? '下载 Windows 演示' : 'Download Windows demo'} ↗</a></div>
+  </section>
+  <section class="wrap project-facts" aria-label={zh ? '项目事实' : 'Project facts'}>
+    <div><span class="eyebrow">PLATFORM</span><strong>Windows x64</strong></div>
+    <div><span class="eyebrow">STACK</span><strong>Unity / C# / UGUI</strong></div>
+    <div><span class="eyebrow">{zh ? '有效运行' : 'VALID RUNS'}</span><strong>130 <small>{zh ? '次独立 Player' : 'independent Player runs'}</small></strong></div>
+    <div><span class="eyebrow">{zh ? '参与方式' : 'PROCESS'}</span><strong>{zh ? 'Agent 参与实现与审查' : 'Agent-assisted development'}</strong></div>
+  </section>
+  <section class="wrap section" id="case-studies"><div class="section-heading"><div><p class="eyebrow">CASE STUDIES</p><h2>{zh ? '走进实验' : 'Inside the experiments'}</h2></div></div><CaseCards lang={lang} /></section>
+  <section class="wrap section results-section">
+    <div class="section-heading"><div><p class="eyebrow">RESULTS & LIMITS</p><h2>{zh ? '保留改善，也保留不确定。' : 'Improvements. And uncertainty.'}</h2></div></div>
+    <div class="result-grid">
+      <article><span class="eyebrow">LIST LAB / 50 RUNS</span><h3><span>3</span> improved <span class="muted">/ 2 inconclusive</span></h3><p>{zh ? '5 组列表对照，覆盖选定更新场景。未测场景不作推断。' : 'Five list comparisons across selected update scenarios. No conclusions for unmeasured scenarios.'}</p></article>
+      <article><span class="eyebrow">GRADIENT LAB / 80 RUNS</span><h3><span>4</span> improved <span class="muted">/ 4 inconclusive</span></h3><p>{zh ? '8 组渐变对照。Fixed32 极端 bias 质量受限，不是等画质最优排名。' : 'Eight gradient comparisons. Fixed32 is quality-limited at extreme bias; this is not a ranking at equal quality.'}</p></article>
+    </div>
+    <EvidenceNote lang={lang} />
+  </section>
+  <section class="wrap resource-section"><div><p class="eyebrow">EXPLORE FURTHER</p><h2>{zh ? '每个结论，都有来处。' : 'Follow the evidence.'}</h2></div><div class="resource-links">
+    <a href={source}>{zh ? '版本源码' : 'Versioned source'} <span>↗</span></a>
+    <a href={docs + 'PUBLIC_DATA.md'}>{zh ? '原始数据与复算' : 'Evidence & recalculation'} <span>↗</span></a>
+    <a href={downloads}>{zh ? '演示、视频与资料下载' : 'Demos, videos & downloads'} <span>↗</span></a>
+    <a href={docs + 'THIRD_PARTY_NOTICES.md'}>{zh ? '素材来源与许可' : 'Sources & licenses'} <span>↗</span></a>
+  </div></section>
+</Layout>

@@ -1,0 +1,13 @@
+---
+import { docs } from '../data/xuilab';
+import type { Lang } from '../data/profile';
+const { lang } = Astro.props as { lang: Lang };
+const zh = lang === 'zh';
+---
+<aside class="evidence-note">
+  <p class="eyebrow">{zh ? '测量条件与边界' : 'MEASUREMENT CONTEXT'}</p>
+  <p>{zh ? '历史冻结候选 m4-final-b017672；130 次有效独立 Windows Development Player 运行。每次预热 300 帧、采样 1800 帧，每组 5 对独立进程交错执行。数字为各轮帧间隔 p95 的中位数，不是主线程 CPU 时间。' : 'Historical frozen candidate m4-final-b017672; 130 valid independent Windows Development Player runs. Each run uses 300 warm-up and 1,800 sample frames, with five interleaved process pairs per group. Figures summarize per-run frame-interval p95, not main-thread CPU time.'}</p>
+  <p class="muted">Unity 2022.3.45f1c1 · Windows 10 · Ryzen 5 5600G · Radeon RX 9070 · D3D11 · 960 × 540 · Mono Development · VSync 0</p>
+  <p>{zh ? '最终有效运行在 Editor 关闭状态完成。列表含单独的 60 FPS 对照，其余 targetFrameRate = -1。Fixed32 在极端 bias 下质量受限；无数据的指标不记为零。当前公开版本与历史采样源码的对应关系见原始记录。' : 'The Editor was closed for the final valid runs. Lists include a separate 60 FPS comparison; other runs use targetFrameRate = -1. Fixed32 is quality-limited at extreme bias; unavailable metrics are not zero. See the original records for the mapping from measured source to public release.'}</p>
+  <a class="text-link" href={docs + 'RESULTS.md'}>{zh ? '完整数据、方法与限制' : 'Full data, methods & limits'} <span aria-hidden="true">↗</span></a>
+</aside>

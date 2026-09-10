@@ -1,0 +1,14 @@
+---
+import { cases } from '../data/xuilab';
+import type { Lang } from '../data/profile';
+const { lang } = Astro.props as { lang: Lang };
+---
+<div class="case-grid">
+  {cases.map(item => <a class="case-card" href={'/' + lang + '/projects/xuilab/' + item.slug + '/'}>
+    <div class="case-cover"><img src={'/media/xuilab/' + item.folder + '/cover.png'} alt={item.topic[lang]} width="1600" height="900" loading="lazy" /></div>
+    <div class="case-copy"><div class="eyebrow"><span>{item.number}</span><span>{item.topic[lang]}</span></div>
+      <h3>{item.title} <span aria-hidden="true">↗</span></h3>
+      <p>{item.summary[lang]}</p>
+    </div>
+  </a>)}
+</div>

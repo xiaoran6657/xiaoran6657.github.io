@@ -1,0 +1,84 @@
+{
+  "repository": "https://github.com/xiaoran6657/XUILab",
+  "version": "v0.1.0-preview.1",
+  "publicSourceCommit": "231c8161175c7edd8debfe7b75ac7aa6f4a9f020",
+  "measuredCandidate": "m4-final-b017672",
+  "description": "Unmodified project graphics and frame-driven demos; not real-time performance recordings.",
+  "files": [
+    {
+      "path": "/media/xuilab/AgentBenchmark/cover.png",
+      "sha256": "255516095675e6641660d8cab70041a8a04088122d4dee2364044df89b33e0f9",
+      "bytes": 247324
+    },
+    {
+      "path": "/media/xuilab/AgentBenchmark/outcomes.png",
+      "sha256": "603ca29bd11a5d731cdf9992f5b49f01a3cf7128c2b737e22fcb931c75c17520",
+      "bytes": 119248
+    },
+    {
+      "path": "/media/xuilab/AgentBenchmark/pipeline.png",
+      "sha256": "fbf2d572379be9147b647dddb1c260a707472fc2f546c43d427f0a7669799d28",
+      "bytes": 136419
+    },
+    {
+      "path": "/media/xuilab/AgentBenchmark/recovery.png",
+      "sha256": "232d8e289fd43956b7863b1eaeed825c018456a0b9cc3c4eeded90dcd9a281e6",
+      "bytes": 129163
+    },
+    {
+      "path": "/media/xuilab/GradientLab/cover.png",
+      "sha256": "004c4123711e3e15114748efb821b81955199b76ed8df6f22c7fd8e8ae434e11",
+      "bytes": 150765
+    },
+    {
+      "path": "/media/xuilab/GradientLab/gradient-contract.png",
+      "sha256": "7ef87de57896381f3aa7026b8c9c4645b9fc707da9c1666a4c3f0adf678a3412",
+      "bytes": 132809
+    },
+    {
+      "path": "/media/xuilab/GradientLab/performance.png",
+      "sha256": "196141ad220147ee9db1203c86acaad02fa08d6d82bd70e9be938fff70f760f3",
+      "bytes": 178006
+    },
+    {
+      "path": "/media/xuilab/GradientLab/quality-cost.png",
+      "sha256": "053166f4676cf3e4b32a4a3dffd4d7b12d9169f7f85b0ba8dc3df815bec92ed2",
+      "bytes": 145718
+    },
+    {
+      "path": "/media/xuilab/ListLab/cover.png",
+      "sha256": "cb60a23212f61cfbf3da03236563686c00c54889475ea730f717e12249b6b3aa",
+      "bytes": 184317
+    },
+    {
+      "path": "/media/xuilab/ListLab/performance.png",
+      "sha256": "dd106b790f220ac4172293070604d0b5a3a5b4fbca73053de65df002d0a5f900",
+      "bytes": 158110
+    },
+    {
+      "path": "/media/xuilab/ListLab/pool-contract.png",
+      "sha256": "1d02c9a6226255359130c77ccb45aa52108fb37fb0be67014f0381f901d546a5",
+      "bytes": 121366
+    },
+    {
+      "path": "/media/xuilab/ListLab/update-paths.png",
+      "sha256": "b1d820eca720e169f42e64b2db880db57cd6bdcdb34220bf05de14307ed75b36",
+      "bytes": 120677
+    },
+    {
+      "path": "/media/xuilab/list.mp4",
+      "sha256": "40013b4390a225c1f8c489ff55cd237208f1f9c86ae220bc65a14444aee268f4",
+      "bytes": 3527638
+    },
+    {
+      "path": "/media/xuilab/gradient.mp4",
+      "sha256": "e6bcb69035b8c29882e285c484138b8163c025545b7525579c98332a18d2fdd0",
+      "bytes": 501212
+    },
+    {
+      "path": "/media/xuilab/agent.mp4",
+      "sha256": "e70e4ff084b0ad534892bf71f5f541a17072bb00ade6928b7b1fb2da3b9b4a60",
+      "bytes": 414794
+    }
+  ]
+}

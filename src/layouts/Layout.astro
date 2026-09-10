@@ -1,0 +1,110 @@
+---
+import { profile, type Lang } from '../data/profile';
+import '../styles/global.css';
+interface Props { lang: Lang; title?: string; description?: string; path?: string; redirectRoot?: boolean; noindex?: boolean; }
+const { lang, title, description = profile.bio[lang], path = '', redirectRoot = false, noindex = false } = Astro.props;
+const zh = lang === 'zh';
+const root = '/' + lang + '/';
+const canonical = new URL(root + path, Astro.site);
+const nav = [
+  { path: '', label: zh ? '首页' : 'Home' },
+  { path: 'projects/', label: zh ? '作品' : 'Projects' },
+  { path: 'about/', label: zh ? '关于' : 'About' },
+];
+---
+<!doctype html>
+<html lang={zh ? 'zh-CN' : 'en'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f6f7f4" />
+    <title>{title ? title + ' — ' : ''}{profile.name[lang]} · {zh ? '个人作品集' : 'Portfolio'}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" /> }
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="zh-CN" href={new URL('/zh/' + path, Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL('/en/' + path, Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/zh/' + path, Astro.site)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={(title ? title + ' — ' : '') + profile.name[lang]} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={zh ? 'zh_CN' : 'en_US'} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      (() => {
+        let preference = 'system';
+        try { const saved = localStorage.getItem('portfolio-theme'); if (['light','dark'].includes(saved)) preference = saved; } catch {}
+        const dark = preference === 'dark' || (preference === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.dataset.preference = preference;
+      })();
+    </script>
+    {redirectRoot && <script is:inline>
+      (() => {
+        if (location.pathname !== '/') return;
+        let lang;
+        try { lang = localStorage.getItem('portfolio-language'); } catch {}
+        if (!['zh','en'].includes(lang)) lang = navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+        location.replace('/' + lang + '/' + location.search + location.hash);
+      })();
+    </script>}
+  </head>
+  <body>
+    <a href="#main" class="skip-link">{zh ? '跳转到主要内容' : 'Skip to content'}</a>
+    <header class="site-header wrap">
+      <a class="brand" href={root} aria-label={profile.name[lang] + (zh ? ' 首页' : ' home')}>
+        <span class="brand-mark" aria-hidden="true">x.</span><span>{profile.name[lang]}</span>
+      </a>
+      <div class="header-right">
+        <nav aria-label={zh ? '主导航' : 'Main navigation'}>
+          {nav.map(item => <a href={root + item.path} aria-current={path === item.path || (item.path === 'projects/' && path.startsWith('projects/')) ? 'page' : undefined}>{item.label}</a>)}
+        </nav>
+        <div class="preferences">
+          <a class="language-button" href={'/' + (zh ? 'en' : 'zh') + '/' + path} lang={zh ? 'en' : 'zh-CN'} data-language={zh ? 'en' : 'zh'} aria-label={zh ? 'Switch to English' : '切换为中文'}>{zh ? 'EN' : '中文'}</a>
+          <button class="theme-button" id="theme-toggle" type="button" aria-label={zh ? '切换显示模式' : 'Change color theme'}>
+            <span class="theme-icon" aria-hidden="true">◐</span><span id="theme-label">{zh ? '自动' : 'Auto'}</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" tabindex="-1"><slot /></main>
+    <footer class="site-footer wrap">
+      <span>© {new Date().getFullYear()} {profile.name[lang]}</span>
+      <span>{zh ? '持续探索，留下可验证的记录。' : 'Keep exploring. Leave something verifiable.'}</span>
+      <a href={profile.github}>GitHub <span aria-hidden="true">↗</span></a>
+    </footer>
+    <script>
+      const html = document.documentElement;
+      const button = document.querySelector<HTMLButtonElement>('#theme-toggle');
+      const label = document.querySelector('#theme-label');
+      const zh = html.lang === 'zh-CN';
+      const media = matchMedia('(prefers-color-scheme: dark)');
+      const sync = () => {
+        const preference = html.dataset.preference || 'system';
+        const dark = preference === 'dark' || (preference === 'system' && media.matches);
+        html.dataset.theme = dark ? 'dark' : 'light';
+        const names = zh ? { system: '自动', light: '浅色', dark: '深色' } : { system: 'Auto', light: 'Light', dark: 'Dark' };
+        const name = names[preference as keyof typeof names];
+        if (label) label.textContent = name;
+        button?.setAttribute('aria-label', (zh ? '当前模式：' : 'Current theme: ') + name + (zh ? '。点击切换（自动、浅色、深色）' : '. Cycle Auto, Light, Dark'));
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#151916' : '#f6f7f4');
+      };
+      sync();
+      button?.addEventListener('click', () => {
+        const modes = ['system', 'light', 'dark'];
+        const next = modes[(modes.indexOf(html.dataset.preference || 'system') + 1) % 3];
+        html.dataset.preference = next;
+        try { localStorage.setItem('portfolio-theme', next); } catch {}
+        sync();
+      });
+      media.addEventListener('change', sync);
+      document.querySelector<HTMLAnchorElement>('[data-language]')?.addEventListener('click', event => {
+        const link = event.currentTarget as HTMLAnchorElement;
+        try { localStorage.setItem('portfolio-language', link.dataset.language!); } catch {}
+        if (location.hash) link.hash = location.hash;
+      });
+    </script>
+  </body>
+</html>

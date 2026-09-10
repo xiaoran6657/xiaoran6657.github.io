@@ -1,0 +1,22 @@
+---
+import { release } from '../data/xuilab';
+import type { Lang } from '../data/profile';
+const { lang } = Astro.props as { lang: Lang };
+const zh = lang === 'zh';
+---
+<article class="project-feature">
+  <div class="feature-content">
+    <div class="eyebrow"><span>01 / UNITY</span><span class="badge">{zh ? '开源 · 技术预览' : 'Open source · Preview'}</span></div>
+    <h2><a href={'/' + lang + '/projects/xuilab/'}>XUILab<span aria-hidden="true">↗</span></a></h2>
+    <p class="feature-subtitle">{zh ? '可复现的 Unity UGUI 实验' : 'Reproducible Unity UGUI experiments'}</p>
+    <p>{zh ? '虚拟列表、程序化渐变、确定性 Benchmark。把界面背后的问题，变成有实现、有演示、有证据的技术案例。' : 'Virtual lists, procedural gradients, and deterministic benchmarks. Explore the questions behind interfaces through implementations, demos, and evidence.'}</p>
+    <div class="tag-row"><span>Unity</span><span>C#</span><span>UGUI</span><span>Benchmark</span></div>
+    <a class="button button-dark" href={'/' + lang + '/projects/xuilab/'}>{zh ? '探索项目' : 'Explore project'} <span aria-hidden="true">↗</span></a>
+    <small class="release-label">{release} / WINDOWS x64</small>
+  </div>
+  <a class="feature-media" href={'/' + lang + '/projects/xuilab/'} aria-label={zh ? '查看 XUILab 项目' : 'View XUILab project'}>
+    <div class="media-toolbar"><span>GRADIENT LAB</span><span>FIXED / ADAPTIVE</span></div>
+    <img src="/media/xuilab/GradientLab/cover.png" alt={zh ? 'XUILab Gradient Lab：固定与自适应渐变的实际 Player 界面及说明' : 'XUILab Gradient Lab: actual Player interfaces and notes for fixed and adaptive gradients'} width="1600" height="900" fetchpriority="high" />
+    <div class="media-caption"><span>{zh ? '从画质到运行成本' : 'From visual quality to runtime cost'}</span><span aria-hidden="true">02 / 03</span></div>
+  </a>
+</article>
