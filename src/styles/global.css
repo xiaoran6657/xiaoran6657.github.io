@@ -239,8 +239,18 @@
 .battlewall-feature .feature-content h2 { font-size:clamp(2.2rem,4.4vw,3.5rem); }
 .battlewall-title h1 { font-size:clamp(3rem,8vw,7rem); overflow-wrap:anywhere; }
 .battlewall-notice { margin-top:1.5rem; color:var(--muted); font-size:.9rem; }
-.battlewall-contributions { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2rem; }
+.battlewall-contributions { display:grid; grid-template-columns:1fr; gap:1.5rem; margin-top:2rem; }
 .battlewall-contributions article { padding:2rem; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
 .battlewall-contributions h3 { margin-block:.75rem 1.25rem; }
 .battlewall-contributions p + p { margin-top:1rem; }
 @media(max-width:760px) { .battlewall-contributions { grid-template-columns:1fr; } .battlewall-contributions article { padding:1.5rem; } }
+
+.contribution-detail { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2.5rem; margin-bottom: 1.5rem; }
+.contribution-detail h4 { margin: 1.5rem 0 .6rem; font-size: 1rem; }
+.contribution-detail h4:first-child { margin-top: 0; }
+.contribution-detail ul { margin: 0; padding-left: 1.25rem; }
+.contribution-detail li + li { margin-top: .85rem; }
+.contribution-flow { padding: 1rem; border-left: 3px solid var(--accent); background: var(--bg); }
+.battlewall-view-labels { display: grid; grid-template-columns: 1fr 1fr; margin-top: 1.5rem; text-align: center; font-weight: 600; padding: .6rem; }
+.battlewall-video video { aspect-ratio: 5 / 2; }
+@media (max-width: 760px) { .contribution-detail { grid-template-columns: 1fr; gap: 1.5rem; } }

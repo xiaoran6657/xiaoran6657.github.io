@@ -49,7 +49,7 @@ for (const asset of manifest.files) {
 
 const battlewallManifest = JSON.parse(await readFile(join(root, 'media/battlewall/manifest.json'), 'utf8'));
 assert.equal(battlewallManifest.files.length, 2);
-assert.deepEqual((await readdir(join(root, 'media/battlewall'))).sort(), ['NOTICE.txt', 'demo.mp4', 'manifest.json', 'poster.jpg']);
+assert.deepEqual((await readdir(join(root, 'media/battlewall'))).sort(), ['NOTICE.txt', 'demo-dual.mp4', 'manifest.json', 'poster-dual.jpg']);
 for (const asset of battlewallManifest.files) {
   const bytes = await readFile(join(root, asset.path));
   assert.equal(bytes.length, asset.bytes);

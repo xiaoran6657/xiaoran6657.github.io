@@ -22,18 +22,20 @@ const zh = lang === 'zh';
   </section>
   <section class="wrap section" id="demo">
     <div class="section-heading"><div><p class="eyebrow">GAMEPLAY DEMO</p><h2>{zh ? '走进攻城战场' : 'Into the siege'}</h2></div></div>
-    <div class="video-frame"><video controls playsinline preload="none" poster="/media/battlewall/poster.jpg" width="1280" height="720" aria-label={zh ? 'BattleWall 游戏完整演示' : 'BattleWall full gameplay demonstration'} aria-describedby="demo-note">
-      <source src="/media/battlewall/demo.mp4" type="video/mp4" />
-      <p>{zh ? '浏览器无法播放此视频。' : 'Your browser cannot play this video.'}<a href="/media/battlewall/demo.mp4">{zh ? '打开演示视频' : 'Open demo video'}</a></p>
+    <p class="lede">{zh ? '同机运行两个 Unity 编辑器，通过本地连接进入同一场多人游戏。下方同时展示两个游戏端的视角。' : 'Two Unity editors running on the same computer connect locally to the same multiplayer session. Both game views are shown together below.'}</p>
+    <div class="battlewall-view-labels"><span>{zh ? '游戏端 A' : 'Game view A'}</span><span>{zh ? '游戏端 B' : 'Game view B'}</span></div>
+    <div class="video-frame battlewall-video"><video controls playsinline preload="none" poster="/media/battlewall/poster-dual.jpg" width="1600" height="640" aria-label={zh ? 'BattleWall 游戏完整演示' : 'BattleWall full gameplay demonstration'} aria-describedby="demo-note">
+      <source src="/media/battlewall/demo-dual.mp4" type="video/mp4" />
+      <p>{zh ? '浏览器无法播放此视频。' : 'Your browser cannot play this video.'}<a href="/media/battlewall/demo-dual.mp4">{zh ? '打开演示视频' : 'Open demo video'}</a></p>
     </video></div>
-    <p class="video-note" id="demo-note">{zh ? '约 2 分 45 秒的游戏演示。网页版本裁切保留左侧游戏画面，隐藏编辑器、工程目录与日志；完整时长、顺序、速度和原音轨保留。画面用于展示游戏，不作为网络同步正确性或性能测量的证明。' : 'Approximately 2 minutes 45 seconds of gameplay. The web edit crops to the left-hand gameplay view, omitting the editor, project panels, and logs. Full duration, sequence, speed, and original audio are preserved. The footage illustrates the game; it is not a networking correctness test or performance benchmark.'}</p>
+    <p class="video-note" id="demo-note">{zh ? '约 2 分 45 秒的游戏演示。网页版本并排保留同一录屏中两端可见的游戏区域，隐藏编辑器面板、工程目录与日志。原窗口有重叠，因此两端可见范围不同；完整时长、顺序、速度和原音轨保留。画面用于展示游戏，不作为网络同步正确性或性能测量的证明。' : 'Approximately 2 minutes 45 seconds of gameplay. The web edit places the visible gameplay regions from both peers side by side, omitting editor panels, project directories, and logs. The original windows overlap, so the visible area differs between peers. Full duration, sequence, speed, and original audio are preserved. The footage illustrates the game; it is not a networking correctness test or performance benchmark.'}</p>
   </section>
   <section class="wrap section" id="contributions">
     <div class="section-heading"><div><p class="eyebrow">MY CONTRIBUTIONS</p><h2>{zh ? '让输入、状态与表现衔接起来' : 'Connecting input, state & presentation'}</h2></div></div>
     <p class="lede">{zh ? '以下按个人参与的客户端工作归纳。游戏本身由团队协作完成，画面中的全部玩法与美术不代表由我独立制作。' : 'The following summarizes my contributions to the client. The game was developed collaboratively; the full gameplay and artwork shown are not presented as my individual work.'}</p>
     <div class="battlewall-contributions">{contributions.map((item, index) => <article>
       <p class="eyebrow">0{index + 1} / GAMEPLAY ENGINEERING</p><h3>{item.title[lang]}</h3>
-      <p>{item.problem[lang]}</p><p>{item.work[lang]}</p>
+      <div class="contribution-detail"><div><h4>{zh ? '问题背景' : 'Context'}</h4><p>{item.problem[lang]}</p><h4>{zh ? '处理流程' : 'Flow'}</h4><p class="contribution-flow">{item.flow[lang]}</p></div><div><h4>{zh ? '参与的实现工作' : 'Implementation contributions'}</h4><ul>{item.details.map(detail => <li>{detail[lang]}</li>)}</ul><h4>{zh ? '具体场景' : 'Concrete scenario'}</h4><p>{item.example[lang]}</p></div></div>
       <p class="muted"><strong>{zh ? '取舍：' : 'Tradeoff: '}</strong>{item.tradeoff[lang]}</p>
     </article>)}</div>
   </section>

@@ -1,17 +1,17 @@
 {
   "project": "BattleWall",
   "license": "All rights remain with respective rights holders; no open-source media license granted.",
-  "processing": "Full-duration left-hand gameplay crop; editor panels and logs omitted. Original sequence, speed and audio retained. H.264/AAC, 1280x720, faststart.",
+  "processing": "Two simultaneous visible gameplay regions from the same locally connected dual-editor recording, placed side by side. Overlapping source windows limit visible area. Editor panels and logs omitted. Full duration, sequence, speed and audio retained. H.264/AAC, 1600x640, faststart.",
   "files": [
     {
-      "path": "/media/battlewall/demo.mp4",
-      "bytes": 26255308,
-      "sha256": "9cd4d35c08087fa2eaa589f7dc444a87845ffa98b63c364ce50c52156b8a277a"
+      "path": "/media/battlewall/demo-dual.mp4",
+      "bytes": 37529505,
+      "sha256": "d505560630a38c1efbd9b42da4f000e04d2e12a0b2674c97ccbfe387c29e13ea"
     },
     {
-      "path": "/media/battlewall/poster.jpg",
-      "bytes": 51008,
-      "sha256": "fc3146ba1351f8a10ca588db6d62e3a8c8b37050ab216f34b209cadbe778d3ce"
+      "path": "/media/battlewall/poster-dual.jpg",
+      "bytes": 66871,
+      "sha256": "034be4536d6893a2393b2b7723f147228e8fcb29b318f2d4f29a035ac3324d45"
     }
   ]
 }
