@@ -1,18 +1,18 @@
 # 项目状态
 
-更新：2026-09-11
+更新：2026-09-17
 
 ## 当前交付
 
 个人站已公开上线：[xiaoran6657.github.io](https://xiaoran6657.github.io)。源码位于 [GitHub 仓库](https://github.com/xiaoran6657/xiaoran6657.github.io)，默认分支 main。
 
-首页、作品索引、XUILab 概览、三个技术案例和关于页面均有中英版本；另含根路径入口与 404，共 16 个 HTML 页面。主题支持自动/浅色/深色。公开身份集中于 src/data/profile.ts；使用已确认的默认名称、职业定位及 GitHub 联系入口，空邮箱/简历不显示。
+首页、作品索引、XUILab 概览、三个技术案例和关于页面均有中英版本；另含根路径入口与 404，新增 BattleWall 双语作品页，共 18 个 HTML 页面。主题支持自动/浅色/深色。公开身份集中于 src/data/profile.ts；使用已确认的默认名称、职业定位及 GitHub 联系入口，空邮箱/简历不显示。
 
 已镜像 XUILab v0.1.0-preview.1 的 12 张原图和 3 段视频，源文件 SHA-256 均通过核对。原始素材清单的 Git blob 与公开 tag 一致。XUILab 本地仓库未被修改。
 
-## 交付验证
+## 初版交付验证（2026-09-11）
 
-站点源码基线：`696955408a68f8ef55847f871f540eec1c6e22d1`。后续文档提交不改变网站源文件；最新 main 的运行状态以 [Actions](https://github.com/xiaoran6657/xiaoran6657.github.io/actions/workflows/deploy.yml) 为准。
+初版 XUILab 站点源码基线：`696955408a68f8ef55847f871f540eec1c6e22d1`。最新 main 的运行状态以 [Actions](https://github.com/xiaoran6657/xiaoran6657.github.io/actions/workflows/deploy.yml) 为准。
 
 - 本地 Astro 类型检查：0 errors / warnings / hints。
 - 生产构建：16 HTML 页面与 sitemap。
@@ -23,6 +23,15 @@
 - 在线 HTTP：根页面、14 个语言页面、404.html、sitemap.xml 与 robots.txt 均返回 200；不存在路径返回自定义 404。
 - 在线 15 份媒体全部匹配本地 SHA-256；视频 Range 请求返回 206，具备分段传输能力。
 - 本地与线上预览已交付。真实浏览器的验收范围见下方。
+
+## BattleWall 增补（2026-09-17）
+
+- 首页及作品列表增加第二个作品；/zh/projects/battlewall/ 与 /en/projects/battlewall/ 展示团队项目与个人参与的客户端 gameplay 工作。
+- 明确非开源、团队协作及权利归属；不附源码或构建下载，不发布原始技术文档、代码片段、面试材料与简历草稿。
+- 原录屏包含编辑器和日志，网页视频裁切保留左侧游戏画面，保持完整时长、顺序、速度与原音轨。网页文件 26,255,308 字节，约 2 分 45 秒；原文件未改动、未提交。
+- 原视频与最终裁切视频进行少量抽帧核对，最终视频全程解码无错误。封面取自演示本身，没有生成游戏画面。
+- 本地 npm run verify 通过：18 个 HTML、17 项媒体哈希、路由/链接/元信息/语言和偏好脚本检查。BattleWall 媒体目录有独立白名单检查。
+- 详细公开范围见 BATTLEWALL_PUBLICATION.md。发布沿用 main 自动部署，运行结果以对应 Actions 为准。
 
 ## 发布配置
 

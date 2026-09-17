@@ -1,0 +1,22 @@
+---
+import { battlewall } from '../data/battlewall';
+import type { Lang } from '../data/profile';
+const { lang } = Astro.props as { lang: Lang };
+const zh = lang === 'zh';
+const href = '/' + lang + '/projects/battlewall/';
+---
+<article class="project-feature battlewall-feature">
+  <div class="feature-content">
+    <div class="eyebrow"><span>02 / UNITY GAMEPLAY</span><span class="badge">{zh ? '团队项目 · 非开源' : 'Team project · Closed source'}</span></div>
+    <h2><a href={href}>BattleWall<span aria-hidden="true">↗</span></a></h2>
+    <p class="feature-subtitle">{battlewall.subtitle[lang]}</p>
+    <p>{battlewall.summary[lang]}</p>
+    <div class="tag-row"><span>Unity / C#</span><span>Entitas ECS</span><span>Netcode</span><span>Input System</span></div>
+    <a class="button button-dark" href={href}>{zh ? '查看参与工作与演示' : 'Contributions & demo'} <span aria-hidden="true">↗</span></a>
+  </div>
+  <a class="feature-media" href={href} aria-label={zh ? '查看 BattleWall 游戏演示' : 'View the BattleWall gameplay demo'}>
+    <div class="media-toolbar"><span>BATTLEWALL</span><span>GAMEPLAY</span></div>
+    <img src="/media/battlewall/poster.jpg" alt={zh ? 'BattleWall 游戏演示画面' : 'A frame from the BattleWall gameplay demo'} width="1280" height="720" loading="lazy" />
+    <div class="media-caption"><span>{zh ? '角色 · 载具 · 多人联机' : 'Characters · Vehicles · Multiplayer'}</span><span>{zh ? '参与开发' : 'Development contribution'}</span></div>
+  </a>
+</article>

@@ -1,0 +1,17 @@
+{
+  "project": "BattleWall",
+  "license": "All rights remain with respective rights holders; no open-source media license granted.",
+  "processing": "Full-duration left-hand gameplay crop; editor panels and logs omitted. Original sequence, speed and audio retained. H.264/AAC, 1280x720, faststart.",
+  "files": [
+    {
+      "path": "/media/battlewall/demo.mp4",
+      "bytes": 26255308,
+      "sha256": "9cd4d35c08087fa2eaa589f7dc444a87845ffa98b63c364ce50c52156b8a277a"
+    },
+    {
+      "path": "/media/battlewall/poster.jpg",
+      "bytes": 51008,
+      "sha256": "fc3146ba1351f8a10ca588db6d62e3a8c8b37050ab216f34b209cadbe778d3ce"
+    }
+  ]
+}

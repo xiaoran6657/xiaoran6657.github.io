@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BattleWallFeature from './BattleWallFeature.astro';
 import ProjectFeature from './ProjectFeature.astro';
 import CaseCards from './CaseCards.astro';
 import { profile, type Lang } from '../data/profile';
@@ -18,8 +19,8 @@ const zh = lang === 'zh';
     </div>
   </section>
   <section class="wrap section" id="selected-work">
-    <div class="section-heading"><p class="eyebrow">{zh ? 'SELECTED WORK / 精选作品' : 'SELECTED WORK'}</p><span class="muted">01</span></div>
-    <ProjectFeature lang={lang} />
+    <div class="section-heading"><p class="eyebrow">{zh ? 'SELECTED WORK / 精选作品' : 'SELECTED WORK'}</p><span class="muted">02</span></div>
+    <ProjectFeature lang={lang} /><BattleWallFeature lang={lang} />
   </section>
   <section class="wrap section cases-section">
     <div class="section-heading"><div><p class="eyebrow">INSIDE XUILAB</p><h2>{zh ? '三个问题，三条探索路径。' : 'Three questions. Three explorations.'}</h2></div><a class="text-link" href={'/' + lang + '/projects/xuilab/'}>{zh ? '项目概览' : 'Project overview'} <span aria-hidden="true">↗</span></a></div>

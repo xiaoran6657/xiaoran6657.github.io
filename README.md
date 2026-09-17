@@ -21,7 +21,7 @@ npm run verify
 npm run preview
 ```
 
-`verify` 执行 Astro 类型检查、生产构建、16 个 HTML 页面与站内资源/锚点检查、15 份媒体哈希校验，以及生产脚本的主题和语言偏好测试。它不等同于真实浏览器视觉/视频播放验收。
+`verify` 执行 Astro 类型检查、生产构建、18 个 HTML 页面与站内资源/锚点检查、17 份媒体哈希校验，以及生产脚本的主题和语言偏好测试。它不等同于真实浏览器视觉/视频播放验收。
 
 ## 修改公开身份
 
@@ -80,3 +80,9 @@ GitHub 仓库 Settings → Pages → Source 使用 **GitHub Actions**。站点�
 - [项目范围](Docs/PROJECT_BRIEF.md)
 - [设计与路由](Docs/DESIGN.md)
 - [当前状态与后续维护](Docs/PROJECT_STATUS.md)
+
+## BattleWall（非开源团队作品）
+
+第二个作品入口为 /zh/projects/battlewall/ 与 /en/projects/battlewall/。内容配置在 src/data/battlewall.ts，首页卡片为 src/components/BattleWallFeature.astro。
+
+仅公开个人贡献摘要、裁切压缩的游戏演示与封面。原始技术资料含实现代码，面试准备材料也不适合直接发布，因此均未复制或提交。游戏及媒体不适用 XUILab 的 MIT 许可，权利归各自权利人所有。网页视频保留完整时长和原速，裁去编辑器、工程目录与日志区域；不作为性能或联机正确性证据。

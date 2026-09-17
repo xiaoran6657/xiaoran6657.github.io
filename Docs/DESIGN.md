@@ -18,6 +18,7 @@
 | projects/xuilab/list-lab/ | 列表案例与视频 |
 | projects/xuilab/gradient-lab/ | 渐变案例与视频 |
 | projects/xuilab/benchmark-runner/ | Runner 案例与视频 |
+| projects/battlewall/ | 非开源团队作品、个人贡献摘要与裁切演示 |
 | about/ | 配置化身份、公开项目方向与联系入口 |
 
 根路径提供语言偏好跳转与无 JS 中文内容；404 页面提供双语返回链接。每个语言页面有 title、description、canonical、hreflang、OG 文本元信息，并列入 sitemap.xml。
