@@ -1,0 +1,24 @@
+{
+  "project": "LumaBough",
+  "tag": "v0.1.0-preview",
+  "tagCommit": "f26b8b98a727532081d0793bf34c54b230cd7173",
+  "runtimeBuildCommit": "5d320c773c7c9943e28fde2185204d05ca9ca19c",
+  "processing": "Byte-for-byte copies of tagged render preview and published Release videos. The preview predates these videos.",
+  "files": [
+    {
+      "path": "/media/lumabough/render-preview.png",
+      "bytes": 324110,
+      "sha256": "2a4ac022e5c9bdad03d065bcef785d66b6cd6d8bf8a58506c5fbad1b33eab3af"
+    },
+    {
+      "path": "/media/lumabough/lumabough-demo-d3d11.mp4",
+      "bytes": 1205881,
+      "sha256": "1602ca64ef79af1f71ae10958c50826b3e61a217ade04ef5560b40d71ced95c2"
+    },
+    {
+      "path": "/media/lumabough/lumabough-demo-d3d12.mp4",
+      "bytes": 1431663,
+      "sha256": "542e3b3e829afdf81b706000b9c913a22212eda10b6ad790002f3cc1601517af"
+    }
+  ]
+}

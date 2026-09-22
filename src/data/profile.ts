@@ -3,14 +3,15 @@ export type Localized = Record<Lang, string>;
 
 // Public identity only. Empty resume/email fields hide their links.
 export const profile = {
-  name: { zh: 'xiaoran6657', en: 'xiaoran6657' },
-  role: { zh: 'Unity / UI 工程探索', en: 'Exploring Unity & UI engineering' },
+  name: { zh: '王佳豪', en: 'Jiahao Wang' },
+  role: { zh: '游戏客户端 / 渲染工程开发', en: 'Game Client / Rendering Developer' },
   bio: {
-    zh: '围绕 Unity 界面、渲染细节与性能测量，记录从问题、实现到验证的过程。这里收录我的开源项目、团队项目参与经历与工程实验。',
-    en: 'Exploring Unity interfaces, rendering details, and performance measurement. A collection of open-source projects, team contributions, and engineering experiments, from questions to implementation and verification.',
+    zh: '关注 Unity 客户端、C++ 渲染架构与可复现验证。从多人游戏的输入与状态协作，到 UI 实验和双图形后端，记录实现过程、设计取舍与证据。',
+    en: 'Focused on Unity client development, C++ rendering architecture, and reproducible verification. From multiplayer input and state coordination to UI experiments and dual graphics backends, I document implementation, tradeoffs, and evidence.',
   },
   github: 'https://github.com/xiaoran6657',
-  email: '',
+  email: 'xiaoran6657@gmail.com',
+  phone: '18326431204',
   resume: { zh: '', en: '' },
 };
 export const languages: Lang[] = ['zh', 'en'];

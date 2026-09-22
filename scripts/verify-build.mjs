@@ -3,7 +3,7 @@ import { resolve, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 const root = resolve('dist');
-const paths = ['', 'projects/', 'projects/battlewall/', 'about/', 'projects/xuilab/', 'projects/xuilab/list-lab/', 'projects/xuilab/gradient-lab/', 'projects/xuilab/benchmark-runner/'];
+const paths = ['', 'projects/', 'projects/battlewall/', 'projects/lumabough/', 'about/', 'projects/xuilab/', 'projects/xuilab/list-lab/', 'projects/xuilab/gradient-lab/', 'projects/xuilab/benchmark-runner/'];
 const pagePaths = ['/','/404.html', ...['zh','en'].flatMap(lang => paths.map(path => '/' + lang + '/' + path))];
 const pages = new Map();
 for (const path of pagePaths) {
@@ -29,7 +29,7 @@ for (const path of pagePaths) {
 for (const [path, html] of pages) {
   for (const match of html.matchAll(/(?:href|src|poster)="([^"]*)"/g)) {
     const value = match[1].replaceAll('&amp;', '&');
-    if (!value || /^(https?:|mailto:|data:)/.test(value)) continue;
+    if (!value || /^(https?:|mailto:|tel:|data:)/.test(value)) continue;
     const url = new URL(value, 'https://local.test' + path);
     const target = decodeURIComponent(url.pathname);
     const file = join(root, target.endsWith('/') ? target + 'index.html' : target);
@@ -60,6 +60,9 @@ for (const lang of ['zh', 'en']) {
   assert(!/InterviewQA|ResumeBullets|Assets\/Script|PersonalKnowledgeBase|<code[ >]|<pre[ >]/.test(html), 'Private preparation or implementation must not leak');
   assert(html.includes(lang === 'zh' ? '非开源' : 'Closed source'), 'Closed-source label required');
 }
+const lb = JSON.parse(await readFile(join(root, 'media/lumabough/manifest.json'), 'utf8'));
+assert.equal(lb.files.length, 3);
+for (const asset of lb.files) { const bytes = await readFile(join(root, asset.path)); assert.equal(bytes.length, asset.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), asset.sha256); }
 const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
 for (const path of pagePaths.filter(path => /^\/(zh|en)\//.test(path))) assert(sitemap.includes('https://xiaoran6657.github.io' + path), 'Sitemap missing ' + path);
-console.log('Verified ' + pages.size + ' HTML pages: routes, links, fragments, languages, metadata, image descriptions, video policy, sitemap, and 17 media hashes.');
+console.log('Verified ' + pages.size + ' HTML pages: routes, links, fragments, languages, metadata, image descriptions, video policy, sitemap, and 20 media hashes.');

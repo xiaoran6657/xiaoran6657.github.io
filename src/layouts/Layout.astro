@@ -73,6 +73,7 @@ const nav = [
     <footer class="site-footer wrap">
       <span>© {new Date().getFullYear()} {profile.name[lang]}</span>
       <span>{zh ? '持续探索，留下可验证的记录。' : 'Keep exploring. Leave something verifiable.'}</span>
+      <a href={'/' + lang + '/about/#contact'}>{zh ? '联系我' : 'Contact'}</a>
       <a href={profile.github}>GitHub <span aria-hidden="true">↗</span></a>
     </footer>
     <script>

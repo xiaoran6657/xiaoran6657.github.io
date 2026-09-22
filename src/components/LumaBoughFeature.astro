@@ -1,0 +1,11 @@
+---
+import { lumabough } from '../data/lumabough';
+import type { Lang } from '../data/profile';
+const { lang } = Astro.props as { lang: Lang }; const zh=lang==='zh'; const href='/'+lang+'/projects/lumabough/';
+---
+<article class="project-feature lumabough-feature">
+  <div class="feature-content"><div class="eyebrow"><span>03 / RENDERING ENGINEERING</span><span class="badge">MIT · {lumabough.tag}</span></div>
+    <h2><a href={href}>LumaBough<span aria-hidden="true">↗</span></a></h2><p class="feature-subtitle">{zh ? '光枝 · 从帧构建到资源生命周期' : 'From frame construction to resource lifetimes'}</p><p>{lumabough.summary[lang]}</p>
+    <div class="tag-row"><span>C++20</span><span>D3D11 / D3D12</span><span>Render Graph</span></div><a class="button button-dark" href={href}>{zh ? '查看架构、演示与证据' : 'Architecture, demos & evidence'} ↗</a></div>
+  <a class="feature-media" href={href} aria-label={zh ? '查看 LumaBough 渲染作品' : 'Explore LumaBough'}><div class="media-toolbar"><span>LUMABOUGH</span><span>D3D11 / D3D12</span></div><img src="/media/lumabough/render-preview.png" width="1280" height="720" alt={zh ? 'LumaBough 固定场景的真实渲染输出' : 'Actual LumaBough rendering of a fixed scene'} loading="lazy" /><div class="media-caption"><span>{zh ? '双后端 · 资源管理 · 可复核实验' : 'Dual backends · Resources · Evidence'}</span><span>Windows / C++20</span></div></a>
+</article>

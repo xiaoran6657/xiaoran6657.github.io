@@ -86,3 +86,7 @@ GitHub 仓库 Settings → Pages → Source 使用 **GitHub Actions**。站点�
 第二个作品入口为 /zh/projects/battlewall/ 与 /en/projects/battlewall/。内容配置在 src/data/battlewall.ts，首页卡片为 src/components/BattleWallFeature.astro。
 
 仅公开个人贡献摘要、裁切压缩的游戏演示与封面。原始技术资料含实现代码，面试准备材料也不适合直接发布，因此均未复制或提交。游戏及媒体不适用 XUILab 的 MIT 许可，权利归各自权利人所有。网页视频保留完整时长和原速，裁去编辑器、工程目录与日志区域；不作为性能或联机正确性证据。
+
+## LumaBough · 光枝
+
+第三个作品：`/zh/projects/lumabough/` 与 `/en/projects/lumabough/`。配置在 `src/data/lumabough.ts`。资料固定于公开 `v0.1.0-preview`；镜像一张真实预览和两段 Release 视频，哈希及构建身份见 `public/media/lumabough/manifest.json`。更新时重新核对公开来源、许可与性能边界。电话、邮箱、姓名及职业定位统一维护在 `src/data/profile.ts`。
