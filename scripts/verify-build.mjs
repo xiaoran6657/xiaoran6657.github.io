@@ -61,8 +61,8 @@ for (const lang of ['zh', 'en']) {
   assert(html.includes(lang === 'zh' ? '非开源' : 'Closed source'), 'Closed-source label required');
 }
 const lb = JSON.parse(await readFile(join(root, 'media/lumabough/manifest.json'), 'utf8'));
-assert.equal(lb.files.length, 3);
+assert.equal(lb.files.length, 6);
 for (const asset of lb.files) { const bytes = await readFile(join(root, asset.path)); assert.equal(bytes.length, asset.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), asset.sha256); }
 const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
 for (const path of pagePaths.filter(path => /^\/(zh|en)\//.test(path))) assert(sitemap.includes('https://xiaoran6657.github.io' + path), 'Sitemap missing ' + path);
-console.log('Verified ' + pages.size + ' HTML pages: routes, links, fragments, languages, metadata, image descriptions, video policy, sitemap, and 20 media hashes.');
+console.log('Verified ' + pages.size + ' HTML pages: routes, links, fragments, languages, metadata, image descriptions, video policy, sitemap, and 23 media hashes.');

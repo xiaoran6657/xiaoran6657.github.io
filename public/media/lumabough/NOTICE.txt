@@ -3,3 +3,4 @@ Project-owned material: Copyright (c) 2026 xiaoran6657, MIT; see LICENSE.txt.
 Environment: Qwantani by Rob Tuytel / Poly Haven, CC0-1.0, https://polyhaven.com/a/qwantani .
 Source attribution: https://github.com/xiaoran6657/LumaBough/blob/v0.1.0-preview/assets/LICENSES.md .
 Media copied without modification. The render preview is an earlier fixed-scene output, not a frame from the published videos.
+Architecture figures context.svg, frame.svg and assets.svg are unmodified copies of docs/architecture from the pinned tag, under the project MIT license.

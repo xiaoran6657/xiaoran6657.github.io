@@ -3,7 +3,7 @@
   "tag": "v0.1.0-preview",
   "tagCommit": "f26b8b98a727532081d0793bf34c54b230cd7173",
   "runtimeBuildCommit": "5d320c773c7c9943e28fde2185204d05ca9ca19c",
-  "processing": "Byte-for-byte copies of tagged render preview and published Release videos. The preview predates these videos.",
+  "processing": "Byte-for-byte copies of tagged render preview and published Release videos. The preview predates these videos. Architecture SVGs are unmodified copies from the same tag.",
   "files": [
     {
       "path": "/media/lumabough/render-preview.png",
@@ -19,6 +19,21 @@
       "path": "/media/lumabough/lumabough-demo-d3d12.mp4",
       "bytes": 1431663,
       "sha256": "542e3b3e829afdf81b706000b9c913a22212eda10b6ad790002f3cc1601517af"
+    },
+    {
+      "path": "/media/lumabough/context.svg",
+      "bytes": 4346,
+      "sha256": "1dbc80bdd0bd24e4d21fb4ff6b3de2e7b2d3946e4ad5404cc4636674fa498c19"
+    },
+    {
+      "path": "/media/lumabough/frame.svg",
+      "bytes": 4350,
+      "sha256": "4d7c31a995fdcccaf12a6320e0d874127104fcb0df9797e4ba594b2245606cf9"
+    },
+    {
+      "path": "/media/lumabough/assets.svg",
+      "bytes": 4357,
+      "sha256": "5b6ddbafde663d39be8f9ccc44354101c9f759ee565d99d0c636987911f3d603"
     }
   ]
 }

@@ -21,7 +21,7 @@ npm run verify
 npm run preview
 ```
 
-`verify` 执行 Astro 类型检查、生产构建、20 个 HTML 页面与站内资源/锚点检查、20 份媒体哈希校验，以及生产脚本的主题和语言偏好测试。它不等同于真实浏览器视觉/视频播放验收。
+`verify` 执行 Astro 类型检查、生产构建、20 个 HTML 页面与站内资源/锚点检查、23 份媒体哈希校验，以及生产脚本的主题和语言偏好测试。它不等同于真实浏览器视觉/视频播放验收。
 
 ## 修改公开身份
 
@@ -91,4 +91,4 @@ GitHub 仓库 Settings → Pages → Source 使用 **GitHub Actions**。站点�
 
 ## LumaBough · 光枝
 
-第三个作品：`/zh/projects/lumabough/` 与 `/en/projects/lumabough/`。配置在 `src/data/lumabough.ts`。资料固定于公开 `v0.1.0-preview`；镜像一张真实预览和两段 Release 视频，哈希及构建身份见 `public/media/lumabough/manifest.json`。更新时重新核对公开来源、许可与性能边界。电话、邮箱、姓名及职业定位统一维护在 `src/data/profile.ts`。
+第三个作品：`/zh/projects/lumabough/` 与 `/en/projects/lumabough/`。摘要配置在 `src/data/lumabough.ts`，详细机制、事件与图解在 `src/data/lumabough-details.ts`。资料固定于公开 `v0.1.0-preview`；镜像一张真实预览、三张原始架构 SVG 和两段 Release 视频，哈希及构建身份见 `public/media/lumabough/manifest.json`。更新时重新核对公开来源、许可与性能边界。电话、邮箱、姓名及职业定位统一维护在 `src/data/profile.ts`。

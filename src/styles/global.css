@@ -289,3 +289,18 @@
 .figure-source { font-size: .8rem; color: var(--muted); margin-top: 1.2rem; overflow-wrap: anywhere; }
 .figure-crossref { margin-top: 1rem; font-size: .9rem; }
 @media(max-width:760px) { .figure-reading > div { grid-template-columns: 1fr; gap: .3rem; } .case-results-table th, .case-results-table td { padding: .75rem; } }
+
+.lumabough-nav { display:flex; flex-wrap:wrap; gap:.8rem 1.5rem; padding-top:1.5rem; padding-bottom:1.5rem; border-bottom:1px solid var(--line); font-size:.85rem; }
+.lumabough-reading { max-width:1000px; }
+.lumabough-reading h2 { margin-bottom:1.5rem; }
+.lumabough-questions { padding-left:1.3rem; margin-top:1.5rem; }
+.lumabough-questions li + li { margin-top:.9rem; }
+.lumabough-chapter { padding:2rem 0; border-bottom:1px solid var(--line); }
+.lumabough-chapter h3 { font-size:clamp(1.4rem,3vw,1.9rem); margin:.75rem 0 1rem; }
+.lumabough-chapter h4 { font-size:1.1rem; margin:1.5rem 0 .7rem; }
+.lumabough-reading .evidence-figure figcaption { color:var(--text); font-size:1rem; }
+.lumabough-reading .evidence-figure img { background:#f5f7fa; }
+.lumabough-reading .case-explanation { margin-bottom:2rem; }
+.lb-prose-table { min-width:620px; }
+.case-results-table .lb-prose-table th, .case-results-table .lb-prose-table td { white-space:normal; vertical-align:top; min-width:140px; }
+#evidence > .lumabough-reading { margin:0 auto 2rem; }
