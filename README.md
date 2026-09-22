@@ -39,7 +39,8 @@ npm run preview
 
 ## 修改作品内容
 
-- `src/data/xuilab.ts`：案例中英文文案及固定版本源码链接。
+- `src/data/xuilab.ts`：案例摘要及固定版本源码链接。
+- `src/data/xuilab-details.ts`：双语详细正文、完整结果表及逐图读图说明。
 - `src/components/ProjectFeature.astro`：XUILab 首页展示。
 - `src/pages/[lang]/projects/xuilab/`：概览与三个案例路由。
 - `src/styles/global.css`：布局、配色和响应式规则。
