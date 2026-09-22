@@ -62,3 +62,9 @@ GitHub Pages 使用 GitHub Actions（`build_type=workflow`），HTTPS 已启用�
 - 性能采用 lb-current-004 的 1 INCONCLUSIVE + 3 REJECTED，无当前加速声明；保留历史身份缺口、读者验证延期与运行范围限制。未运行上游引擎实验。
 - 姓名、电话、邮箱与职业定位集中配置；关于页显示电话与邮箱，页脚新增联系入口。
 - 本次 npm run verify 通过：20 页面、20 媒体哈希，类型检查零错误/警告，偏好脚本通过；两段视频完整解码无错误。发布由 main 工作流执行。浏览器工具因 Windows sandbox ACL 初始化错误未能启动，不宣称浏览器视觉或播放验收通过。
+
+## 首页层级调整（2026-09-22）
+
+- 中英文首页及根入口移除 INSIDE XUILAB 案例区，精选作品仅按项目展示；三个案例仍归属 XUILab 详情页。
+- 同步用户修改的 profile.ts：公开邮箱更新为 2334399771@qq.com。
+- npm run verify 通过（20 页面、20 媒体哈希与偏好脚本）；生成页面已核对首页移除、项目页案例保留与双语邮箱链接。由 main 推送触发部署。

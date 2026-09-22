@@ -10,7 +10,7 @@ export const profile = {
     en: 'Focused on Unity client development, C++ rendering architecture, and reproducible verification. From multiplayer input and state coordination to UI experiments and dual graphics backends, I document implementation, tradeoffs, and evidence.',
   },
   github: 'https://github.com/xiaoran6657',
-  email: 'xiaoran6657@gmail.com',
+  email: '2334399771@qq.com',
   phone: '18326431204',
   resume: { zh: '', en: '' },
 };
