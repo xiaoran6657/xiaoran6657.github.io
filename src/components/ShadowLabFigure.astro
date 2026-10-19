@@ -1,0 +1,30 @@
+---
+import type { Lang } from '../data/profile';
+import type { ShowcasePreset } from '../data/lumabough-showcase';
+import { lumabough } from '../data/lumabough';
+const { lang, preset, eager = false } = Astro.props as { lang: Lang; preset: ShowcasePreset; eager?: boolean };
+const zh = lang === 'zh';
+const p = preset.parameters;
+const parameters = `${p.scene} · ${p.shadow} · light-size ${p.lightSize} · bias ${p.bias} · ${p.samples} samples/phase · ${p.indirect} · ${p.width}×${p.height}`;
+---
+<figure class="evidence-figure shadow-lab-figure">
+  <a href={'/media/lumabough/shadow-lab/' + preset.file} aria-label={preset.title[lang] + (zh ? '，查看原图' : ', open original')}>
+    <img src={'/media/lumabough/shadow-lab/' + preset.file} width={p.width} height={p.height} alt={preset.alt[lang]} loading={eager ? 'eager' : 'lazy'} />
+  </a>
+  <figcaption>
+    <h3>{preset.title[lang]}</h3>
+    <p class="shadow-lab-parameters">{parameters}</p>
+    <p>{preset.reading[lang]}</p>
+    <p class="shadow-lab-boundary"><strong>{zh ? '解释范围：' : 'Scope: '}</strong>{preset.boundary[lang]}</p>
+    <p class="figure-source"><a href={lumabough.source + lumabough.showcase + 'media/' + preset.file}>{zh ? '固定版本原图' : 'Pinned source image'}</a> · <a href={lumabough.source + lumabough.showcase + 'manifest.json'}>{zh ? '参数与完整性清单' : 'Parameters & integrity manifest'}</a></p>
+  </figcaption>
+</figure>
+<style>
+  .shadow-lab-figure { margin: 1.5rem 0 2rem; min-width: 0; }
+  .shadow-lab-figure img { width: 100%; height: auto; background: #192631; }
+  .shadow-lab-figure figcaption { color: var(--text); font-size: 1rem; }
+  .shadow-lab-figure h3 { font-size: 1.15rem; margin: .9rem 0 .6rem; }
+  .shadow-lab-figure p { margin: .65rem 0; }
+  .shadow-lab-parameters { font-size: .78rem; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; color: var(--muted); }
+  .shadow-lab-boundary { font-size: .875rem; color: var(--muted); }
+</style>

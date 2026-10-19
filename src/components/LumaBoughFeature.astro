@@ -1,11 +1,22 @@
 ---
 import { lumabough } from '../data/lumabough';
 import type { Lang } from '../data/profile';
-const { lang } = Astro.props as { lang: Lang }; const zh=lang==='zh'; const href='/'+lang+'/projects/lumabough/';
+const { lang } = Astro.props as { lang: Lang };
+const zh = lang === 'zh';
+const href = '/' + lang + '/projects/lumabough/';
 ---
 <article class="project-feature lumabough-feature">
-  <div class="feature-content"><div class="eyebrow"><span>03 / RENDERING ENGINEERING</span><span class="badge">MIT · {lumabough.tag}</span></div>
-    <h2><a href={href}>LumaBough<span aria-hidden="true">↗</span></a></h2><p class="feature-subtitle">{zh ? '光枝 · 从帧构建到资源生命周期' : 'From frame construction to resource lifetimes'}</p><p>{lumabough.summary[lang]}</p>
-    <div class="tag-row"><span>C++20</span><span>D3D11 / D3D12</span><span>Render Graph</span></div><a class="button button-dark" href={href}>{zh ? '查看架构、演示与证据' : 'Architecture, demos & evidence'} ↗</a></div>
-  <a class="feature-media" href={href} aria-label={zh ? '查看 LumaBough 渲染作品' : 'Explore LumaBough'}><div class="media-toolbar"><span>LUMABOUGH</span><span>D3D11 / D3D12</span></div><img src="/media/lumabough/render-preview.png" width="1280" height="720" alt={zh ? 'LumaBough 固定场景的真实渲染输出' : 'Actual LumaBough rendering of a fixed scene'} loading="lazy" /><div class="media-caption"><span>{zh ? '双后端 · 资源管理 · 可复核实验' : 'Dual backends · Resources · Evidence'}</span><span>Windows / C++20</span></div></a>
+  <div class="feature-content">
+    <div class="eyebrow"><span>03 / SHADOW &amp; LIGHTING</span><span class="badge">MIT · {lumabough.tag}</span></div>
+    <h2><a href={href}>LumaBough<span aria-hidden="true">↗</span></a></h2>
+    <p class="feature-subtitle">{zh ? '光枝 · 软阴影与光照实验' : 'Soft-shadow and lighting experiments'}</p>
+    <p>{lumabough.summary[lang]}</p>
+    <div class="tag-row"><span>C++20 / HLSL</span><span>D3D12</span><span>PCF / PCSS</span></div>
+    <a class="button button-dark" href={href}>{zh ? '查看阴影对照与复现方法' : 'View comparisons & reproduction'} ↗</a>
+  </div>
+  <a class="feature-media" href={href} aria-label={zh ? '查看 LumaBough 软阴影实验' : 'Explore LumaBough shadow experiments'}>
+    <div class="media-toolbar"><span>LUMABOUGH</span><span>PCSS · D3D12</span></div>
+    <img src="/media/lumabough/shadow-lab/shadow-pcss.png" width="960" height="600" alt={zh ? '阴影测试台的 PCSS 实际 GPU 输出，场景中含不同高度的遮挡物' : 'Actual GPU output of PCSS in the shadow bench, with occluders at different heights'} loading="lazy" />
+    <div class="media-caption"><span>{zh ? '算法对照 · 参数实验 · 一次反弹' : 'Methods · Parameters · One bounce'}</span><span>Windows / D3D12</span></div>
+  </a>
 </article>

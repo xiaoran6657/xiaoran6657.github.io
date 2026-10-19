@@ -14,7 +14,7 @@ for (const path of pagePaths) {
   assert.match(html, /<link rel="canonical"/, path + ': canonical');
   const lang = path.startsWith('/en/') ? 'en' : 'zh-CN';
   assert.match(html, new RegExp('<html lang="' + lang + '"'), path + ': document language');
-  assert(!html.includes('G:\\Programming') && !html.includes('C:\\Users'), path + ': private path leak');
+  assert(!/[A-Za-z]:[\\/](?:Programming|Users)[\\/]/i.test(html), path + ': private path leak');
   for (const match of html.matchAll(/<img\b[^>]*>/g)) {
     assert.match(match[0], /\balt="[^"]+"/, path + ': image alt');
     assert.match(match[0], /\bwidth="/, path + ': image dimensions');
@@ -63,6 +63,50 @@ for (const lang of ['zh', 'en']) {
 const lb = JSON.parse(await readFile(join(root, 'media/lumabough/manifest.json'), 'utf8'));
 assert.equal(lb.files.length, 6);
 for (const asset of lb.files) { const bytes = await readFile(join(root, asset.path)); assert.equal(bytes.length, asset.bytes); assert.equal(createHash('sha256').update(bytes).digest('hex'), asset.sha256); }
+
+const shadowRoot = 'media/lumabough/shadow-lab';
+const shadow = JSON.parse(await readFile(join(root, shadowRoot, 'manifest.json'), 'utf8'));
+const shadowNames = ['shadow-hard.png', 'shadow-pcf.png', 'shadow-pcss.png', 'shadow-pcss-diagnostic.png', 'shadow-light-small.png', 'shadow-light-large.png', 'shadow-bias-high.png', 'shadow-samples-low.png', 'cornell-direct.png', 'cornell-bounce.png'];
+assert.equal(shadow.tag, 'v0.2.0-shadow-lab');
+assert.match(shadow.tagCommit, /^[0-9a-f]{40}$/);
+assert.equal(shadow.files.length, shadowNames.length);
+assert.deepEqual((await readdir(join(root, shadowRoot))).sort(), ['manifest.json', ...shadowNames].sort());
+assert.deepEqual(shadow.files.map(asset => asset.path).sort(), shadowNames.map(name => '/' + shadowRoot + '/' + name).sort());
+const shadowBase = { scene: 'shadow-bench', shadow: 'pcss', lightSize: 0.65, bias: 0.004, samples: 64, indirect: 'direct', width: 960, height: 600 };
+const shadowOverrides = {
+  'shadow-hard.png': { shadow: 'hard' },
+  'shadow-pcf.png': { shadow: 'pcf' },
+  'shadow-light-small.png': { lightSize: 0.15 },
+  'shadow-light-large.png': { lightSize: 1.2 },
+  'shadow-bias-high.png': { bias: 0.3 },
+  'shadow-samples-low.png': { samples: 8 },
+  'cornell-direct.png': { scene: 'cornell' },
+  'cornell-bounce.png': { scene: 'cornell', indirect: 'bounce' }
+};
+for (const asset of shadow.files) {
+  const name = asset.path.split('/').at(-1);
+  assert.equal(asset.sourcePath, 'docs/showcase/shadow-lab/media/' + name);
+  const bytes = await readFile(join(root, asset.path));
+  assert.equal(bytes.length, asset.bytes, asset.path + ': length');
+  assert.equal(createHash('sha256').update(bytes).digest('hex'), asset.sha256, asset.path + ': hash');
+  assert.equal(bytes.subarray(0, 16).toString('hex'), '89504e470d0a1a0a0000000d49484452', asset.path + ': PNG IHDR');
+  assert.equal(bytes.readUInt32BE(16), 960, asset.path + ': PNG width');
+  assert.equal(bytes.readUInt32BE(20), 600, asset.path + ': PNG height');
+  assert.equal(asset.width, 960);
+  assert.equal(asset.height, 600);
+  const expected = { ...shadowBase, ...shadowOverrides[name] };
+  assert.deepEqual(Object.keys(asset.parameters).sort(), Object.keys(expected).sort(), asset.path + ': parameter allowlist');
+  for (const [key, value] of Object.entries(expected)) {
+    const actual = asset.parameters[key];
+    if (key === 'lightSize' || key === 'bias') {
+      assert.equal(typeof actual, 'number');
+      assert(Number.isFinite(actual) && Math.abs(actual - value) <= Math.max(1e-7, Math.abs(value) * 1e-6), asset.path + ': ' + key);
+    } else {
+      assert.equal(actual, value, asset.path + ': ' + key);
+    }
+  }
+}
 const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
 for (const path of pagePaths.filter(path => /^\/(zh|en)\//.test(path))) assert(sitemap.includes('https://xiaoran6657.github.io' + path), 'Sitemap missing ' + path);
-console.log('Verified ' + pages.size + ' HTML pages: routes, links, fragments, languages, metadata, image descriptions, video policy, sitemap, and 23 media hashes.');
+const mediaCount = manifest.files.length + battlewallManifest.files.length + lb.files.length + shadow.files.length;
+console.log('Verified ' + pages.size + ' HTML pages: routes, links, fragments, languages, metadata, image descriptions, video policy, sitemap, and ' + mediaCount + ' media hashes.');

@@ -21,6 +21,10 @@ BattleWall 为非开源协作游戏。游戏、画面与音轨权利归各自权
 
 ## LumaBough
 
-来源：[v0.1.0-preview](https://github.com/xiaoran6657/LumaBough/releases/tag/v0.1.0-preview)。截图来自 tag 的 docs/portfolio/media/render-preview.png；双后端视频来自同名 Release，未修改字节。截图较早，不能当作发布视频的抽帧或最终构建验证。项目自有内容为 MIT，版权文本随媒体保留于 public/media/lumabough/LICENSE.txt。演示环境 Qwantani 来自 Rob Tuytel / Poly Haven（CC0），其余素材归属见 [上游许可](https://github.com/xiaoran6657/LumaBough/blob/v0.1.0-preview/assets/LICENSES.md)。本站没有导入原始 Capture、内部日志或私人历史。
+当前软阴影与光照实验固定于 [v0.2.0-shadow-lab](https://github.com/xiaoran6657/LumaBough/releases/tag/v0.2.0-shadow-lab)。10 张 PNG 逐字节来自公开 tag 的 [docs/showcase/shadow-lab/media](https://github.com/xiaoran6657/LumaBough/tree/v0.2.0-shadow-lab/docs/showcase/shadow-lab/media)，包括 9 张颜色输出和 1 张 PCSS 诊断图。完整性与来源清单位于 public/media/lumabough/shadow-lab/manifest.json；本站未裁切、缩放文件、重绘或生成实验图片。
+
+新场景的几何和材质由项目程序生成，没有导入 GAMES202 作业源码、第三方模型或 Cornell 标定数据。Cornell 风格小室是近似 RGB 材质的开顶教学场景；诊断图经过 false-color 编码，不代表最终材质。项目自有源码和图片适用 MIT，版权原文随媒体保留于 public/media/lumabough/LICENSE.txt。Agent 参与实现、验证与整理；技术交付不代替个人学习确认。
+
+以下为保留的历史来源：[v0.1.0-preview](https://github.com/xiaoran6657/LumaBough/releases/tag/v0.1.0-preview)。截图来自 tag 的 docs/portfolio/media/render-preview.png；双后端视频来自同名 Release，未修改字节。截图较早，不能当作发布视频的抽帧或最终构建验证。演示环境 Qwantani 来自 Rob Tuytel / Poly Haven（CC0），其余素材归属见 [上游许可](https://github.com/xiaoran6657/LumaBough/blob/v0.1.0-preview/assets/LICENSES.md)。本站没有导入原始 Capture、内部日志或私人历史。
 
 LumaBough 架构图 context.svg、frame.svg、assets.svg 来自同一 tag 的 docs/architecture，按 MIT 保留原始字节与版权文本；图源哈希仍内嵌在 SVG 中。
