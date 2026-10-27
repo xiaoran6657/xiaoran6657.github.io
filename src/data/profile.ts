@@ -3,7 +3,7 @@ export type Localized = Record<Lang, string>;
 
 // Public identity only. Empty resume/email fields hide their links.
 export const profile = {
-  name: { zh: '王佳豪', en: 'Jiahao Wang' },
+  name: { zh: 'xiaoran6657', en: 'xiaoran6657' },
   role: { zh: '游戏客户端 / 渲染工程开发', en: 'Game Client / Rendering Developer' },
   bio: {
     zh: '关注 Unity 客户端、C++ 渲染架构与可复现验证。从多人游戏的输入与状态协作，到 UI 实验和双图形后端，记录实现过程、设计取舍与证据。',

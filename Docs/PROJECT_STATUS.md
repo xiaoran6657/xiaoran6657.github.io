@@ -1,12 +1,12 @@
 # 项目状态
 
-更新：2026-10-27
+更新：2026-10-28
 
 ## 当前交付
 
 个人站已公开上线：[xiaoran6657.github.io](https://xiaoran6657.github.io)。源码位于 [GitHub 仓库](https://github.com/xiaoran6657/xiaoran6657.github.io)，默认分支 main。
 
-首页、作品索引、XUILab 概览、三个技术案例和关于页面均有中英版本；另含根路径入口与 404，包含 BattleWall、LumaBough 与 UEFogLab 双语作品页，共 22 个 HTML 页面。主题支持自动/浅色/深色。公开身份集中于 src/data/profile.ts；姓名为王佳豪 / Jiahao Wang，职业定位为游戏客户端 / 渲染工程开发；电话与邮箱按用户提供信息公开，空简历不显示。
+首页、作品索引、XUILab 概览、三个技术案例和关于页面均有中英版本；另含根路径入口与 404，包含 BattleWall、LumaBough 与 UEFogLab 双语作品页，共 22 个 HTML 页面。主题支持自动/浅色/深色。公开身份集中于 src/data/profile.ts；中英文公开显示名均为 xiaoran6657，职业定位为游戏客户端 / 渲染工程开发；电话与邮箱按用户提供信息公开，空简历不显示。
 
 已镜像 XUILab v0.1.0-preview.1 的 12 张原图和 3 段视频，源文件 SHA-256 均通过核对。原始素材清单的 Git blob 与公开 tag 一致。XUILab 本地仓库未被修改。
 
@@ -108,3 +108,10 @@ Prepared13 overlays/13 mirrors for fixed base f67076b. New zh/en routes, fourth-
 - 新中英案例与第四项目入口保留XUILab／BattleWall／LumaBough、公开profile、语言与主题实现；主页静态栈和依赖锁不变。精简结果仅更新真实发布元数据，实验数值与来源身份不变；10份MIT媒体原字节镜像，总体验证为22HTML／43媒体。
 - 新候选的npm verify、Edge真实浏览器与独立门禁分别记录；main发布使用[现有Pages工作流](https://github.com/xiaoran6657/xiaoran6657.github.io/actions/workflows/deploy.yml)。推送、Actions、HTTP和线上播放分别核验，当前部署结果以实际main对应运行记录为准。
 - 静帧视频48秒、原生controls／preload none／无autoplay；24fps为编码属性。Full默认、Half总雾成本更高、薄遮挡反例、不同APK、whole-frame／FPS／能耗不可用及历史SIGSEGV未定保留，未重跑上游UE／手机／性能，所有者学习另记。
+
+## 全站显示名修订（2026-10-28，本地待发布）
+
+- 中英文共用公开显示名更新为 `xiaoran6657`；电话、邮箱及原有联系入口按所有者选择保留，profile 其余字段保持原值。当前源码、生成 HTML、页头／页脚、title／Open Graph／aria 与关于页已检查；公开 Git 历史保留。
+- 本轮 `npm run verify` 通过：34 个 Astro 文件零错误／警告／提示，22 个 HTML、43 份媒体哈希、站内链接与偏好脚本检查通过。额外私有检查确认 107 个跟踪源文件和 22 个生成 HTML 无旧显示名，双语联系入口仍存在。
+- 已安装 Edge 156.0.4314.42 的真实 headless 浏览器检查了中英首页、关于与 UEFogLab 页面，共 12 个桌面／390px 视口组合：显示名、元信息、页头／页脚及关于页联系人均通过，无全页横溢出。实际查看代表截图；这不是 headed 手工或实体手机测试。
+- 内置浏览器与 Computer Use 入口均在 Windows sandbox 初始化阶段失败，没有执行 UI 输入；本轮使用现有 Edge／捆绑 Playwright，不安装新软件或修改系统设置。未修改其他项目事实、媒体、主题／语言实现或依赖锁；未运行新 UE／GPU／手机／性能实验。此条记录本地候选，不表示本次已部署，线上状态待实际 main／Actions 核验。
