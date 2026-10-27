@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import UEFogFeature from '../../../components/UEFogFeature.astro';
 import LumaBoughFeature from '../../../components/LumaBoughFeature.astro';
 import BattleWallFeature from '../../../components/BattleWallFeature.astro';
 import ProjectFeature from '../../../components/ProjectFeature.astro';
@@ -9,6 +10,6 @@ const lang = Astro.params.lang as Lang;
 const zh = lang === 'zh';
 ---
 <Layout lang={lang} title={zh ? '作品' : 'Projects'} path="projects/">
-  <section class="wrap page-intro"><p class="eyebrow">PROJECT INDEX / 03</p><h1>{zh ? '作品与实验' : 'Projects & experiments'}</h1><p class="lede">{zh ? '从具体问题出发，记录实现、取舍与可以复核的结果。' : 'Starting with specific questions, documenting implementation, tradeoffs, and results that can be checked.'}</p></section>
-  <section class="wrap section"><ProjectFeature lang={lang} /><BattleWallFeature lang={lang} /><LumaBoughFeature lang={lang} /></section>
+  <section class="wrap page-intro"><p class="eyebrow">PROJECT INDEX / 04</p><h1>{zh ? '作品与实验' : 'Projects & experiments'}</h1><p class="lede">{zh ? '从具体问题出发，记录实现、取舍与可以复核的结果。' : 'Starting with specific questions, documenting implementation, tradeoffs, and results that can be checked.'}</p></section>
+  <section class="wrap section"><ProjectFeature lang={lang} /><BattleWallFeature lang={lang} /><LumaBoughFeature lang={lang} /><UEFogFeature lang={lang} /></section>
 </Layout>

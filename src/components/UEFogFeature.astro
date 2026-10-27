@@ -1,0 +1,22 @@
+---
+import { uefoglab } from '../data/uefoglab';
+import type { Lang } from '../data/profile';
+const { lang } = Astro.props as { lang: Lang };
+const zh = lang === 'zh';
+const href = '/' + lang + '/projects/uefoglab/';
+---
+<article class="project-feature">
+  <div class="feature-content">
+    <div class="eyebrow"><span>04 / LOCAL FOG</span><span class="badge">{uefoglab.status[lang]}</span></div>
+    <h2><a href={href}>UEFogLab<span aria-hidden="true">↗</span></a></h2>
+    <p class="feature-subtitle">{uefoglab.subtitle[lang]}</p>
+    <p>{uefoglab.summary[lang]}</p>
+    <div class="tag-row"><span>UE 5.8</span><span>C++ / HLSL</span><span>D3D12 / Vulkan</span></div>
+    <a class="button button-dark" href={href}>{zh ? '查看质量、成本与反例' : 'Explore quality, cost & limitations'} ↗</a>
+  </div>
+  <a class="feature-media" href={href} aria-label={zh ? '查看 UEFogLab 局部雾实验' : 'Explore the UEFogLab local fog experiment'}>
+    <div class="media-toolbar"><span>UEFOGLAB</span><span>FULL64 / DEFAULT</span></div>
+    <img src="/media/uefoglab/cover.png" width="1280" height="720" alt={zh ? '实际 Manual HG 局部雾静帧：球域介质中有固定柱体和细杆，覆盖说明文字' : 'Actual Manual HG local fog still with fixed pillars and thin rods inside the medium, with caption bands'} loading="lazy" />
+    <div class="media-caption"><span>{zh ? '同模型数值 · 原生差异 · 真机成本' : 'Numerics · Native differences · Mobile cost'}</span><span>{zh ? 'Agent 辅助学习工程' : 'Agent-assisted learning project'}</span></div>
+  </a>
+</article>

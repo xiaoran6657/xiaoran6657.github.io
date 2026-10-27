@@ -1,12 +1,12 @@
 # 项目状态
 
-更新：2026-10-19
+更新：2026-10-27
 
 ## 当前交付
 
 个人站已公开上线：[xiaoran6657.github.io](https://xiaoran6657.github.io)。源码位于 [GitHub 仓库](https://github.com/xiaoran6657/xiaoran6657.github.io)，默认分支 main。
 
-首页、作品索引、XUILab 概览、三个技术案例和关于页面均有中英版本；另含根路径入口与 404，包含 BattleWall 与 LumaBough 双语作品页，共 20 个 HTML 页面。主题支持自动/浅色/深色。公开身份集中于 src/data/profile.ts；姓名为王佳豪 / Jiahao Wang，职业定位为游戏客户端 / 渲染工程开发；电话与邮箱按用户提供信息公开，空简历不显示。
+首页、作品索引、XUILab 概览、三个技术案例和关于页面均有中英版本；另含根路径入口与 404，包含 BattleWall、LumaBough 与 UEFogLab 双语作品页，共 22 个 HTML 页面。主题支持自动/浅色/深色。公开身份集中于 src/data/profile.ts；姓名为王佳豪 / Jiahao Wang，职业定位为游戏客户端 / 渲染工程开发；电话与邮箱按用户提供信息公开，空简历不显示。
 
 已镜像 XUILab v0.1.0-preview.1 的 12 张原图和 3 段视频，源文件 SHA-256 均通过核对。原始素材清单的 Git blob 与公开 tag 一致。XUILab 本地仓库未被修改。
 
@@ -96,3 +96,15 @@ GitHub Pages 使用 GitHub Actions（`build_type=workflow`），HTTPS 已启用�
 
 - 实际网站仓库完整 `npm run verify` 同样通过。内容提交 `ceda79e64fd2df8d6fc72a6ed1b5d9dc59f32a96` 的 [GitHub Pages build/deploy](https://github.com/xiaoran6657/xiaoran6657.github.io/actions/runs/39195018502) 成功。随后无凭据 HTTP 回读 8 个中英入口、媒体清单和 10 张原图，共 19 项通过，媒体逐字节 SHA 一致。
 - 浏览器视觉检查来自本地生产预览；尝试打开线上页面两次超时，未宣称线上浏览器截图或移动端/视频播放验收。此条只记账，部署内容与受验内容一致；后续部署状态以 main 的 Actions 为准。
+
+
+## UEFogLab MIT local candidate (2026-10-27)
+
+Prepared13 overlays/13 mirrors for fixed base f67076b. New zh/en routes, fourth-project entries, sitemap and checks preserve the existing public identity, three projects and language/theme code. MIT / 2026 xiaoran6657 covers original project contributions; UE/third-party rights are retained. New MIT-captioned video/poster and compact data/provenance have new SHA. Static verify and real browser results are recorded separately in PUB-01 candidate delivery; this document does not establish deployment or phone support. The source repository is not created and no source-homepage write/main push/deployment occurs in preparation.
+
+## UEFogLab 固定源码与主页发布（2026-10-27）
+
+- 源码已经公开：[UEFogLab](https://github.com/xiaoran6657/UEFogLab)／[v0.1.0-preview.1](https://github.com/xiaoran6657/UEFogLab/tree/v0.1.0-preview.1)，main与tag均为`e805a290fa8bc2ed94c64d85bfa02db31e256abc`，tree`f5053683a5b060e97961602273f02e645b88ce7c`。MIT／2026 xiaoran6657；UE与第三方权利保留。
+- 新中英案例与第四项目入口保留XUILab／BattleWall／LumaBough、公开profile、语言与主题实现；主页静态栈和依赖锁不变。精简结果仅更新真实发布元数据，实验数值与来源身份不变；10份MIT媒体原字节镜像，总体验证为22HTML／43媒体。
+- 新候选的npm verify、Edge真实浏览器与独立门禁分别记录；main发布使用[现有Pages工作流](https://github.com/xiaoran6657/xiaoran6657.github.io/actions/workflows/deploy.yml)。推送、Actions、HTTP和线上播放分别核验，当前部署结果以实际main对应运行记录为准。
+- 静帧视频48秒、原生controls／preload none／无autoplay；24fps为编码属性。Full默认、Half总雾成本更高、薄遮挡反例、不同APK、whole-frame／FPS／能耗不可用及历史SIGSEGV未定保留，未重跑上游UE／手机／性能，所有者学习另记。

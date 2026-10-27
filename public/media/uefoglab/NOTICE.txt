@@ -1,0 +1,4 @@
+UEFogLab original project contributions: MIT / Copyright (c) 2026 xiaoran6657. See LICENSE.txt.
+UE/Epic and third-party rights remain reserved; the project license does not relicense Engine technology/assets/trademarks. No Engine/SDK/tool/font binaries or third-party originals are included.
+The48-second silent edit contains six stills;24fps is encoded rate, not measured real-time performance. Historical model/device/APK and failure limits are preserved in results.json/provenance.json.
+Coding agents assisted implementation, execution and independent review; owner study remains separate. The source snapshot is public at https://github.com/xiaoran6657/UEFogLab/tree/v0.1.0-preview.1. Website deployment is tracked separately by the portfolio GitHub Actions.

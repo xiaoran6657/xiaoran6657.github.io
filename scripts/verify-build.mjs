@@ -3,7 +3,7 @@ import { resolve, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 const root = resolve('dist');
-const paths = ['', 'projects/', 'projects/battlewall/', 'projects/lumabough/', 'about/', 'projects/xuilab/', 'projects/xuilab/list-lab/', 'projects/xuilab/gradient-lab/', 'projects/xuilab/benchmark-runner/'];
+const paths = ['', 'projects/', 'projects/battlewall/', 'projects/lumabough/', 'projects/uefoglab/', 'about/', 'projects/xuilab/', 'projects/xuilab/list-lab/', 'projects/xuilab/gradient-lab/', 'projects/xuilab/benchmark-runner/'];
 const pagePaths = ['/','/404.html', ...['zh','en'].flatMap(lang => paths.map(path => '/' + lang + '/' + path))];
 const pages = new Map();
 for (const path of pagePaths) {
@@ -106,7 +106,29 @@ for (const asset of shadow.files) {
     }
   }
 }
+const fog = JSON.parse(await readFile(join(root, 'media/uefoglab/manifest.json'), 'utf8'));
+assert.equal(fog.files.length, 10);
+for (const asset of fog.files) {
+  const bytes = await readFile(join(root, asset.path));
+  assert.equal(bytes.length, asset.bytes, asset.path + ': length');
+  assert.equal(createHash('sha256').update(bytes).digest('hex'), asset.sha256, asset.path + ': hash');
+}
+const fogSourceData = await readFile('src/data/uefoglab-results.json');
+const fogPublicData = await readFile(join(root, 'media/uefoglab/results.json'));
+assert.equal(createHash('sha256').update(fogSourceData).digest('hex'), createHash('sha256').update(fogPublicData).digest('hex'), 'UEFogLab source/public data drift');
 const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
 for (const path of pagePaths.filter(path => /^\/(zh|en)\//.test(path))) assert(sitemap.includes('https://xiaoran6657.github.io' + path), 'Sitemap missing ' + path);
-const mediaCount = manifest.files.length + battlewallManifest.files.length + lb.files.length + shadow.files.length;
+const mediaCount = manifest.files.length + battlewallManifest.files.length + lb.files.length + shadow.files.length + fog.files.length;
 console.log('Verified ' + pages.size + ' HTML pages: routes, links, fragments, languages, metadata, image descriptions, video policy, sitemap, and ' + mediaCount + ' media hashes.');
+
+// Actual public UEFogLab source identity and pinned links.
+const fogResults = JSON.parse(fogPublicData.toString('utf8'));
+assert.equal(fogResults.sourcePublication.sourcePublished, true);
+assert.equal(fogResults.sourcePublication.commit, 'e805a290fa8bc2ed94c64d85bfa02db31e256abc');
+assert.equal(fogResults.sourcePublication.tag, 'v0.1.0-preview.1');
+assert.equal(fog.sourcePublication.commit, 'e805a290fa8bc2ed94c64d85bfa02db31e256abc');
+for (const lang of ['zh', 'en']) {
+  const html = await readFile(join(root, lang, 'projects/uefoglab/index.html'), 'utf8');
+  for (const url of ['https://github.com/xiaoran6657/UEFogLab', 'https://github.com/xiaoran6657/UEFogLab/tree/v0.1.0-preview.1', 'https://github.com/xiaoran6657/UEFogLab/blob/v0.1.0-preview.1/docs/QUICKSTART.md', 'https://github.com/xiaoran6657/UEFogLab/blob/v0.1.0-preview.1/LICENSE', 'https://github.com/xiaoran6657/UEFogLab/blob/v0.1.0-preview.1/NOTICE.md']) assert(html.includes('href="' + url + '"'), 'Missing pinned source link ' + url);
+  assert(!html.includes('source repository has not been created') && !html.includes('源码仓库尚未创建'));
+}

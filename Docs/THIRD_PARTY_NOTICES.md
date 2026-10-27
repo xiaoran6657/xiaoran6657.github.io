@@ -28,3 +28,14 @@ BattleWall 为非开源协作游戏。游戏、画面与音轨权利归各自权
 以下为保留的历史来源：[v0.1.0-preview](https://github.com/xiaoran6657/LumaBough/releases/tag/v0.1.0-preview)。截图来自 tag 的 docs/portfolio/media/render-preview.png；双后端视频来自同名 Release，未修改字节。截图较早，不能当作发布视频的抽帧或最终构建验证。演示环境 Qwantani 来自 Rob Tuytel / Poly Haven（CC0），其余素材归属见 [上游许可](https://github.com/xiaoran6657/LumaBough/blob/v0.1.0-preview/assets/LICENSES.md)。本站没有导入原始 Capture、内部日志或私人历史。
 
 LumaBough 架构图 context.svg、frame.svg、assets.svg 来自同一 tag 的 docs/architecture，按 MIT 保留原始字节与版权文本；图源哈希仍内嵌在 SVG 中。
+
+
+## UEFogLab MIT showcase: v0.1.0-preview.1
+
+Original project code, self-written documents/figures and original contributions to these rendered/derived media use MIT / Copyright (c)2026 xiaoran6657; retain public/media/uefoglab/LICENSE.txt and NOTICE.txt. Engine/Epic and third-party rights remain reserved under their own terms. Source and derivations are recorded in manifest.json/results.json/provenance.json. No Engine/assets/SDK/tools/fonts or theory originals are bundled.
+
+UEFogLab uses Unreal® Engine. Unreal® is a trademark or registered trademark of Epic Games, Inc. in the United States of America and elsewhere.
+
+Unreal® Engine, Copyright 1998 – 2026, Epic Games, Inc. All rights reserved.
+
+The48-second silent clip is a six-still edit;24fps is encoding rate, not GPU performance footage. Coding agents assisted development, execution and independent review; owner study is separate. Source is public at [v0.1.0-preview.1](https://github.com/xiaoran6657/UEFogLab/tree/v0.1.0-preview.1), commit `e805a290fa8bc2ed94c64d85bfa02db31e256abc`; mirrored media keep their reviewed bytes and historical source labels. [Epic EULA](https://www.unrealengine.com/eula/unreal) remains applicable to Epic technology.

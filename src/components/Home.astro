@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import UEFogFeature from './UEFogFeature.astro';
 import LumaBoughFeature from './LumaBoughFeature.astro';
 import BattleWallFeature from './BattleWallFeature.astro';
 import ProjectFeature from './ProjectFeature.astro';
@@ -19,8 +20,8 @@ const zh = lang === 'zh';
     </div>
   </section>
   <section class="wrap section" id="selected-work">
-    <div class="section-heading"><p class="eyebrow">{zh ? 'SELECTED WORK / 精选作品' : 'SELECTED WORK'}</p><span class="muted">03</span></div>
-    <ProjectFeature lang={lang} /><BattleWallFeature lang={lang} /><LumaBoughFeature lang={lang} />
+    <div class="section-heading"><p class="eyebrow">{zh ? 'SELECTED WORK / 精选作品' : 'SELECTED WORK'}</p><span class="muted">04</span></div>
+    <ProjectFeature lang={lang} /><BattleWallFeature lang={lang} /><LumaBoughFeature lang={lang} /><UEFogFeature lang={lang} />
   </section>
   <section class="wrap about-strip">
     <p class="eyebrow">{zh ? '关于 / ABOUT' : 'ABOUT'}</p>

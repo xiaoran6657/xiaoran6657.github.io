@@ -21,7 +21,7 @@ npm run verify
 npm run preview
 ```
 
-`verify` 执行 Astro 类型检查、生产构建、20 个 HTML 页面与站内资源/锚点检查、33 份媒体哈希校验，以及生产脚本的主题和语言偏好测试。它不等同于真实浏览器视觉/视频播放验收。
+`verify` 执行 Astro 类型检查、生产构建、22 个 HTML 页面与站内资源/锚点检查、43 份媒体哈希校验，以及生产脚本的主题和语言偏好测试。它不等同于真实浏览器视觉/视频播放验收。
 
 ## 修改公开身份
 
@@ -103,3 +103,11 @@ GitHub 仓库 Settings → Pages → Source 使用 **GitHub Actions**。站点�
 实验通过 GPU 解析求交生成盒子与平面的深度图，并进行有限采样过滤；不表示通用 mesh 光栅场景、完整面积光积分、通用 GI 或实时交互。阴影的 samples 是每阶段预算；一次反弹固定使用 256 个余弦加权方向。网页不宣称当前算法加速或帧率。
 
 升级版本时先审查公开上游的运行说明、原图与参数清单，再更新全部来源链接和媒体 SHA，运行 `npm run verify`。技术交付保留 Agent 参与说明，个人学习进展不代签。电话、邮箱、姓名及职业定位仍统一维护在 `src/data/profile.ts`。
+
+## UEFogLab
+
+第四个作品：`/zh/projects/uefoglab/` 与 `/en/projects/uefoglab/`。展示 UE5.8 局部雾积分、S/T深度引导重建、同模型质量反例、原生雾特性比较和固定真机GPU成本。源码固定于[v0.1.0-preview.1](https://github.com/xiaoran6657/UEFogLab/tree/v0.1.0-preview.1)；启动方法见[公开Quickstart](https://github.com/xiaoran6657/UEFogLab/blob/v0.1.0-preview.1/docs/QUICKSTART.md)。
+
+- 页面与首页摘要位于`src/data/uefoglab.ts`、`src/components/UEFogFeature.astro`及`src/pages/[lang]/projects/uefoglab/`；精简数值在`uefoglab-results.json`。
+- 10份媒体在`public/media/uefoglab/`按原字节镜像，manifest绑定SHA与固定tag来源；48秒视频为无音轨静帧剪辑，24fps不是性能值。
+- MIT只覆盖可授权原创贡献；UE／第三方权利保留。Full仍默认，已测Half总雾成本更高，薄遮挡会漏采。不同APK／历史版本、不可用的whole-frame／FPS／能耗、SIGSEGV未定及agent／本人学习边界均保留。
