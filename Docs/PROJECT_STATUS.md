@@ -109,9 +109,22 @@ Prepared13 overlays/13 mirrors for fixed base f67076b. New zh/en routes, fourth-
 - 新候选的npm verify、Edge真实浏览器与独立门禁分别记录；main发布使用[现有Pages工作流](https://github.com/xiaoran6657/xiaoran6657.github.io/actions/workflows/deploy.yml)。推送、Actions、HTTP和线上播放分别核验，当前部署结果以实际main对应运行记录为准。
 - 静帧视频48秒、原生controls／preload none／无autoplay；24fps为编码属性。Full默认、Half总雾成本更高、薄遮挡反例、不同APK、whole-frame／FPS／能耗不可用及历史SIGSEGV未定保留，未重跑上游UE／手机／性能，所有者学习另记。
 
-## 全站显示名修订（2026-10-28，本地待发布）
+## 全站显示名修订（2026-10-28，历史本地验收）
 
 - 中英文共用公开显示名更新为 `xiaoran6657`；电话、邮箱及原有联系入口按所有者选择保留，profile 其余字段保持原值。当前源码、生成 HTML、页头／页脚、title／Open Graph／aria 与关于页已检查；公开 Git 历史保留。
 - 本轮 `npm run verify` 通过：34 个 Astro 文件零错误／警告／提示，22 个 HTML、43 份媒体哈希、站内链接与偏好脚本检查通过。额外私有检查确认 107 个跟踪源文件和 22 个生成 HTML 无旧显示名，双语联系入口仍存在。
 - 已安装 Edge 156.0.4314.42 的真实 headless 浏览器检查了中英首页、关于与 UEFogLab 页面，共 12 个桌面／390px 视口组合：显示名、元信息、页头／页脚及关于页联系人均通过，无全页横溢出。实际查看代表截图；这不是 headed 手工或实体手机测试。
-- 内置浏览器与 Computer Use 入口均在 Windows sandbox 初始化阶段失败，没有执行 UI 输入；本轮使用现有 Edge／捆绑 Playwright，不安装新软件或修改系统设置。未修改其他项目事实、媒体、主题／语言实现或依赖锁；未运行新 UE／GPU／手机／性能实验。此条记录本地候选，不表示本次已部署，线上状态待实际 main／Actions 核验。
+- 内置浏览器与 Computer Use 入口均在 Windows sandbox 初始化阶段失败，没有执行 UI 输入；本轮使用现有 Edge／捆绑 Playwright，不安装新软件或修改系统设置。未修改其他项目事实、媒体、主题／语言实现或依赖锁；未运行新 UE／GPU／手机／性能实验。此条保留发布前的本地检查身份；后续实际部署见下节。
+
+
+## 显示名实际发布（2026-10-28）
+
+- 已审显示名提交 `78ffa0faaaffabca305f8f2452c939dcf688126c` 正常快进 main 并推送。[Actions 40556645610](https://github.com/xiaoran6657/xiaoran6657.github.io/actions/runs/40556645610) 的 build／deploy 均 success；Pages 返回 built／workflow／HTTPS enforced。
+- 本轮匿名回读 22 个线上 HTML 全部 HTTP200，旧显示名命中0，title／Open Graph／brand aria／页脚使用账号别名；双语关于页原电话／邮箱与 tel／mailto 入口保留。旧公开 Git 历史保留。冻结的本地检查记录没有改贴为线上视觉记录。
+
+## UEFogLab 技术讲解修订（2026-10-28，本地候选）
+
+- 中英案例按方案选择、射线／深度裁剪、单位与 S/T／源函数／预曝光、手动HG、四邻域重建、原生对照、真机分项成本、薄遮挡反例和固定 tag 动手复现重新组织。长参数／历史源码身份收在 details；原 method／quality／native／mobile／limits 锚点保留，新增章节有对应语言入口。
+- 新流程和四邻域图为代码原生教学示意；没有生成或改写实验画面。原数值 JSON、43 份媒体、视频 player 标记、公开 profile／联系人、其余三个项目、主题／语言实现和依赖锁不变。成本分项直接读取原 JSON；桌面／移动权重及 fallback 分别说明。
+- 作者本地类型／构建／静态验证与真实 Edge headless 检查分开记录。桌面和390px检查了全文展开布局、公式／示意图、表格／原图独立滚动、新旧语言锚点与主题。视频保留初版完整48秒播放证据身份，本轮只作一次实际播放／暂停／继续 smoke，读取总时长48秒；没有重贴为新全程测试。不是实体手机网页或 headed 手工验收。
+- 此节为本地候选，B 未合 main／未部署，仍需独立审查和实际发布后核验。没有新 UE／GPU／手机／性能实验；公开渲染源码仍为 v0.1.0-preview.1，历史版本、质量／计时不同 APK 和未解决项继续保留。
