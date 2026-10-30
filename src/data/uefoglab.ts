@@ -1,6 +1,11 @@
 import results from './uefoglab-results.json';
 export const uefoglab = {
   results,
+  dynamic: {
+    commit: "f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb",
+    guide: "https://github.com/xiaoran6657/UEFogLab/blob/f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb/docs/DYNAMIC-SHOWCASE.md",
+    published: false,
+  },
   source: {
     repository: 'https://github.com/xiaoran6657/UEFogLab',
     tag: 'https://github.com/xiaoran6657/UEFogLab/tree/v0.1.0-preview.1',

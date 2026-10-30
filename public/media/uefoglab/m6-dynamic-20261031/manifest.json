@@ -1,0 +1,39 @@
+{
+  "kind": "UEFogLab.M6PortfolioMediaManifest",
+  "schemaVersion": 1,
+  "status": "local_author_candidate_not_published",
+  "source": {
+    "repository": "https://github.com/xiaoran6657/UEFogLab",
+    "commit": "f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb",
+    "parent": "e805a290fa8bc2ed94c64d85bfa02db31e256abc",
+    "published": false,
+    "guide": "https://github.com/xiaoran6657/UEFogLab/blob/f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb/docs/DYNAMIC-SHOWCASE.md"
+  },
+  "frames": 1080,
+  "fps": 30,
+  "durationSeconds": 36,
+  "width": 1920,
+  "height": 1280,
+  "audio": false,
+  "files": [
+    {
+      "path": "/media/uefoglab/m6-dynamic-20261031/dynamic-showcase.mp4",
+      "sourcePath": "docs/showcase/releases/m6-dynamic-20261031/media/dynamic-showcase.mp4",
+      "bytes": 6197561,
+      "sha256": "22fb217eafaea096887206a52b80c7008a8e342e3753d9fc1590821e531f1a36"
+    },
+    {
+      "path": "/media/uefoglab/m6-dynamic-20261031/dynamic-poster.png",
+      "sourcePath": "docs/showcase/releases/m6-dynamic-20261031/media/dynamic-poster.png",
+      "bytes": 488811,
+      "sha256": "ff05e8dfff0207dd82955bff33558d3f8bf5d75f9935c606122b0a6a3ac5664b"
+    }
+  ],
+  "sourceMap": {
+    "sourcePath": "docs/showcase/releases/m6-dynamic-20261031/sources.json",
+    "sha256": "4c2f118623037a3b0156685d4fac8ebeda85fef6c23c27459cefd3e21c7aa8b3"
+  },
+  "scope": "real controlled desktop scene motion; offline playback time, no performance/Android/general temporal stability claim",
+  "license": "MIT original contributions / 2026 xiaoran6657; UE and third-party rights retained",
+  "testedRuntimeRevision": "4dcf1c8b425e508bfc1c49894cf46c95a999ee3b"
+}

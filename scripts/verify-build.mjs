@@ -118,7 +118,7 @@ const fogPublicData = await readFile(join(root, 'media/uefoglab/results.json'));
 assert.equal(createHash('sha256').update(fogSourceData).digest('hex'), createHash('sha256').update(fogPublicData).digest('hex'), 'UEFogLab source/public data drift');
 const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
 for (const path of pagePaths.filter(path => /^\/(zh|en)\//.test(path))) assert(sitemap.includes('https://xiaoran6657.github.io' + path), 'Sitemap missing ' + path);
-const mediaCount = manifest.files.length + battlewallManifest.files.length + lb.files.length + shadow.files.length + fog.files.length;
+const mediaCount = manifest.files.length + battlewallManifest.files.length + lb.files.length + shadow.files.length + fog.files.length + 2;
 console.log('Verified ' + pages.size + ' HTML pages: routes, links, fragments, languages, metadata, image descriptions, video policy, sitemap, and ' + mediaCount + ' media hashes.');
 
 // Actual public UEFogLab source identity and pinned links.
@@ -132,3 +132,29 @@ for (const lang of ['zh', 'en']) {
   for (const url of ['https://github.com/xiaoran6657/UEFogLab', 'https://github.com/xiaoran6657/UEFogLab/tree/v0.1.0-preview.1', 'https://github.com/xiaoran6657/UEFogLab/blob/v0.1.0-preview.1/docs/QUICKSTART.md', 'https://github.com/xiaoran6657/UEFogLab/blob/v0.1.0-preview.1/LICENSE', 'https://github.com/xiaoran6657/UEFogLab/blob/v0.1.0-preview.1/NOTICE.md']) assert(html.includes('href="' + url + '"'), 'Missing pinned source link ' + url);
   assert(!html.includes('source repository has not been created') && !html.includes('源码仓库尚未创建'));
 }
+
+// M6 is a new motion edition; retain the ten historical media bindings above.
+const motion = JSON.parse(await readFile(join(root, 'media/uefoglab/m6-dynamic-20261031/manifest.json'), 'utf8'));
+assert.equal(motion.files.length, 2);
+assert.equal(motion.source.commit, 'f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb');
+assert.equal(motion.frames, 1080);
+assert.equal(motion.durationSeconds, 36);
+for (const asset of motion.files) {
+  const bytes = await readFile(join(root, asset.path));
+  assert.equal(bytes.length, asset.bytes, asset.path + ': motion bytes');
+  assert.equal(createHash('sha256').update(bytes).digest('hex'), asset.sha256, asset.path + ': motion SHA');
+  if (asset.path.endsWith('.png')) {
+    assert.equal(bytes.readUInt32BE(16), 1920);
+    assert.equal(bytes.readUInt32BE(20), 1280);
+  }
+}
+for (const lang of ['zh','en']) {
+  const html = await readFile(join(root,lang,'projects/uefoglab/index.html'),'utf8');
+  assert(html.includes('/media/uefoglab/m6-dynamic-20261031/dynamic-showcase.mp4'));
+  assert(html.includes('/media/uefoglab/m6-dynamic-20261031/dynamic-poster.png'));
+  assert(html.includes(motion.source.guide));
+  assert(!html.includes('src="/media/uefoglab/showcase.mp4"'));
+  assert(!html.includes('48-second still-image edit') && !html.includes('48 秒静帧剪辑'));
+  assert.equal([...html.matchAll(/<video\b/g)].length, 1);
+}
+console.log('Verified M6 continuous-motion edition, source identity, 2 media hashes and bilingual single-player replacement.');
