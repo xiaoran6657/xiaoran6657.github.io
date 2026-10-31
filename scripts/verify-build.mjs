@@ -136,7 +136,8 @@ for (const lang of ['zh', 'en']) {
 // M6 is a new motion edition; retain the ten historical media bindings above.
 const motion = JSON.parse(await readFile(join(root, 'media/uefoglab/m6-dynamic-20261031/manifest.json'), 'utf8'));
 assert.equal(motion.files.length, 2);
-assert.equal(motion.source.commit, 'f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb');
+assert.equal(motion.source.commit, '9cffcfaab575903e5e472d29de3b260b8508d284');
+assert.equal(motion.source.published, true);
 assert.equal(motion.frames, 1080);
 assert.equal(motion.durationSeconds, 36);
 for (const asset of motion.files) {

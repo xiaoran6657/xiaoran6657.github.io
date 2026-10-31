@@ -1,13 +1,13 @@
 {
   "kind": "UEFogLab.M6PortfolioMediaManifest",
   "schemaVersion": 1,
-  "status": "local_author_candidate_not_published",
+  "status": "independently_reviewed_motion_edition",
   "source": {
     "repository": "https://github.com/xiaoran6657/UEFogLab",
-    "commit": "f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb",
+    "commit": "9cffcfaab575903e5e472d29de3b260b8508d284",
     "parent": "e805a290fa8bc2ed94c64d85bfa02db31e256abc",
-    "published": false,
-    "guide": "https://github.com/xiaoran6657/UEFogLab/blob/f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb/docs/DYNAMIC-SHOWCASE.md"
+    "published": true,
+    "guide": "https://github.com/xiaoran6657/UEFogLab/blob/9cffcfaab575903e5e472d29de3b260b8508d284/docs/DYNAMIC-SHOWCASE.md"
   },
   "frames": 1080,
   "fps": 30,
@@ -35,5 +35,11 @@
   },
   "scope": "real controlled desktop scene motion; offline playback time, no performance/Android/general temporal stability claim",
   "license": "MIT original contributions / 2026 xiaoran6657; UE and third-party rights retained",
-  "testedRuntimeRevision": "4dcf1c8b425e508bfc1c49894cf46c95a999ee3b"
+  "testedRuntimeRevision": "4dcf1c8b425e508bfc1c49894cf46c95a999ee3b",
+  "review": {
+    "date": "2026-10-31",
+    "authorSourceCandidate": "f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb",
+    "runtimeMediaUnchanged": true,
+    "scope": "controlled Win64 RX9070 UE5.8.4 motion display; no new dynamic numerical or performance claim"
+  }
 }

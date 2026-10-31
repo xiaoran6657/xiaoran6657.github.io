@@ -2,9 +2,9 @@ import results from './uefoglab-results.json';
 export const uefoglab = {
   results,
   dynamic: {
-    commit: "f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb",
-    guide: "https://github.com/xiaoran6657/UEFogLab/blob/f1b0a55d68dcdc4e55fcdf14a6126af86f3c4bbb/docs/DYNAMIC-SHOWCASE.md",
-    published: false,
+    commit: "9cffcfaab575903e5e472d29de3b260b8508d284",
+    guide: "https://github.com/xiaoran6657/UEFogLab/blob/9cffcfaab575903e5e472d29de3b260b8508d284/docs/DYNAMIC-SHOWCASE.md",
+    published: true,
   },
   source: {
     repository: 'https://github.com/xiaoran6657/UEFogLab',
